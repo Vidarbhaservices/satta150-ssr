@@ -1,0 +1,62 @@
+.panel.panel-info {
+  border: 1px solid #3f51b5;
+  border-radius: 5px;
+  width: 70%;
+  margin: 0 auto 0;
+}
+body {
+  background-color: #FFCC99;
+  overflow-x: hidden;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+.panel-heading h1 {
+  margin: 0;
+  padding: 5px;
+}
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  white-space-collapse: collapse;
+  text-wrap: wrap;
+  line-height: normal;
+  font-weight: normal;
+  font-size: medium;
+  font-style: normal;
+  color: -internal-quirk-inherit;
+  text-align: start;
+  border-spacing: 2px;
+  border-color: gray;
+  font-variant: normal;
+}
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+thead {
+  background-color: #ffc107;
+  text-shadow: 1px 1px 2px #9a7400ab;
+}
+tr td:nth-child(1) {
+  font-size: 13px;
+}
+tbody td {
+  padding: 5px 0;
+  font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+.r {
+  color: red;
+}
+tbody tr td:nth-child(2), tbody tr td:nth-child(5), tbody tr td:nth-child(8), tbody tr td:nth-child(11), tbody tr td:nth-child(14), tbody tr td:nth-child(17), tbody tr td:nth-child(20), tbody tr td:nth-child(23) {
+  border-right-width: 0;
+  font-size: 13px;
+}
+table, th, td {
+  border: 1px solid #03a9f4a8;
+}

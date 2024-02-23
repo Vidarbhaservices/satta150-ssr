@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://satta150.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

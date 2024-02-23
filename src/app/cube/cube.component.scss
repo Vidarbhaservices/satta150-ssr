@@ -1,0 +1,116 @@
+.cube-container {
+  perspective: 800px;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  animation: rotate 5s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #333;
+  /* Metallic effect */
+  background-color: #333; /* Adjust color for metallic effect */
+  color: #181818; /* Adjust text color for contrast */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.front { transform: translateZ(100px); }
+.back { transform: rotateY(180deg) translateZ(100px); }
+.left { transform: rotateY(-90deg) translateZ(100px); }
+.right { transform: rotateY(90deg) translateZ(100px); }
+.top { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotate {
+  from { transform: rotateY(0); }
+  to { transform: rotateY(360deg); }
+}
+
+.cube-container:hover .cube {
+  animation-play-state: paused;
+}
+
+.box-face {
+  outline: 1px solid #625a5a;
+  position: absolute;
+  font-size: 30px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.98;
+  //background-color: #fff;
+  box-shadow: inset 0px 0px 100px #353434;
+  /* Metallic effect */
+  background-color: #888683; /* Adjust color for metallic effect */
+  color: #ffffff; /* Adjust text color for contrast */
+
+}
+
+//
+.page {
+  color: #000000;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.live_starline_heading {
+  padding: 10px;
+  font-weight: 900;
+  font-style: normal;
+  overflow: hidden;
+  border: 2px solid #6f6f6f !important;
+  display: block;
+  border-radius: 10px;
+  color: white;
+}
+.sl_tb_28 {
+  color: black;
+  background: linear-gradient(to bottom, #a6a4a4, #fcfcfc, #a6a4a4) !important;
+
+}
+.text-3d {
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  perspective: 800px;
+}
+
+.text-3d::before,
+.text-3d::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: all 0.3s ease;
+}
+
+.text-3d::before {
+  color: #009688;
+  transform: translate3d(5px, 5px, 0);
+}
+
+.text-3d::after {
+  color: #03a9f4;
+  transform: translate3d(-5px, -5px, 0);
+}

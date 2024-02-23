@@ -1,0 +1,134 @@
+<div  style="height: 100%;">
+    <div class="panel panel-info">
+        <div class="panel-heading text-center" style="background: #3f51b5;">
+            <div  style="font-size: 22px;     font-style: normal; font-weight: bolder ; text-shadow: 0 0; color: white">{{title}}
+                <br> Vidharbha Live Star Panel</div>
+        </div>
+        <div class="panel-body">
+            <table style="width: 100%; text-align:center;" class="panel-chart chart-table" cellpadding="2">
+                <thead>
+                <tr>
+                    <!--                    <th>W</th>-->
+                    <th>Date</th>
+                    <th colspan="1">10am</th>
+                    <th colspan="1">11am</th>
+                    <th colspan="1">12am</th>
+                    <th colspan="1">1pm</th>
+                    <th colspan="1">2pm</th>
+                    <th colspan="1">3pm</th>
+                    <th colspan="1">4pm</th>
+                    <th colspan="1">5pm</th>
+                    <th colspan="1">6pm</th>
+                    <th colspan="1">7pm</th>
+                    <th colspan="1">8pm</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tbody>
+
+                <tr *ngFor="let d of tableData">
+                    <!--                MON-->
+                    <!--                <td>{{d.week}}</td>-->
+                    <td class="chart_date">{{d.date}}</td>
+                    <!--                <td ><span class="chart_date">{{d.startDate}}</span><br><span class="chart_date">To</span><br><span class="chart_date">{{d.endDate}}</span></td>-->
+
+                    <td>
+                        {{d.m10am_combination}}<br>
+                        {{d.m10am_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m11am_combination}}<br>
+                        {{d.m11am_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m12am_combination}}<br>
+                        {{d.m12am_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m1pm_combination}}<br>
+                        {{d.m1pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m2pm_combination}}<br>
+                        {{d.m2pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m3pm_combination}}<br>
+                        {{d.m3pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m4pm_combination}}<br>
+                        {{d.m4pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m5pm_combination}}<br>
+                        {{d.m5pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m6pm_combination}}<br>
+                        {{d.m6pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m7pm_combination}}<br>
+                        {{d.m7pm_combinationDigit}}
+                    </td>
+                    <td>
+                        {{d.m8pm_combination}}<br>
+                        {{d.m8pm_combinationDigit}}
+                    </td>
+                    <!--TUE-->
+                    <!--                    <td>{{getFirstCharacter(d.Tue_opening)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Tue_opening)}}<br>{{getThirdCharacter(d.Tue_opening)}}-->
+                    <!--                    </td>-->
+                    <!--                    <td><span>{{d.Tue_openingDigit}}{{d.Tue_closingDigit}}</span></td>-->
+                    <!--                    <td>{{getFirstCharacter(d.Tue_closing)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Tue_closing)}}<br>{{getThirdCharacter(d.Tue_closing)}}-->
+                    <!--                    </td>-->
+                    <!--                    &lt;!&ndash;WED&ndash;&gt;-->
+                    <!--                    <td>{{getFirstCharacter(d.Wed_opening)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Wed_opening)}}<br>{{getThirdCharacter(d.Wed_opening)}}-->
+                    <!--                    </td>-->
+                    <!--                    <td>{{d.Wed_openingDigit}}{{d.Wed_closingDigit}}-->
+                    <!--                    <td>{{getFirstCharacter(d.Wed_closing)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Wed_closing)}}<br>{{getThirdCharacter(d.Wed_closing)}}-->
+                    <!--                    </td>-->
+                    <!--                    &lt;!&ndash;THU&ndash;&gt;-->
+                    <!--                    <td>{{getFirstCharacter(d.Thu_opening)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Thu_opening)}}<br>{{getThirdCharacter(d.Thu_opening)}}-->
+                    <!--                    </td>-->
+
+                    <!--                    <td>{{d.Thu_openingDigit}}{{d.Thu_closingDigit}}</td>-->
+                    <!--                    <td>{{ getFirstCharacter(d.Thu_closing)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Thu_closing)}}<br>{{ getThirdCharacter(d.Thu_closing)}}-->
+                    <!--                    </td>-->
+                    <!--                    &lt;!&ndash;                FRI&ndash;&gt;-->
+                    <!--                    <td>{{getFirstCharacter(d.Fri_opening)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Fri_opening)}}<br>{{getThirdCharacter(d.Fri_opening)}}-->
+                    <!--                    </td>-->
+                    <!--                    <td>{{d.Fri_openingDigit}}{{d.Fri_closingDigit}}</td>-->
+                    <!--                    <td>{{getFirstCharacter(d.Fri_closing)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Fri_closing)}}<br>{{getThirdCharacter(d.Fri_closing)}}-->
+                    <!--                    </td>-->
+                    <!--                    &lt;!&ndash;                SAT&ndash;&gt;-->
+                    <!--                    <td>{{getFirstCharacter(d.Sat_opening)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Sat_opening)}}<br>{{getThirdCharacter(d.Sat_opening)}}-->
+                    <!--                    </td>-->
+                    <!--                    <td>{{d.Sat_openingDigit}}{{d.Sat_closingDigit}}</td>-->
+                    <!--                    <td>{{getFirstCharacter(d.Sat_closing)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Sat_closing)}}<br>{{getThirdCharacter(d.Sat_closing)}}-->
+                    <!--                    </td>-->
+                    <!--                    <td>{{getFirstCharacter(d.Sun_opening)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Sun_opening)}}<br>{{getThirdCharacter(d.Sun_opening)}}-->
+                    <!--                    </td>-->
+                    <!--                    <td>{{d.Sun_openingDigit}}{{d.Sun_closingDigit}}</td>-->
+                    <!--                    <td>{{getFirstCharacter(d.Sun_closing)}}-->
+                    <!--                        <br>{{getSecondCharacter(d.Sun_closing)}}<br>{{getThirdCharacter(d.Sun_closing)}}-->
+                    <!--                    </td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

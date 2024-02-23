@@ -1,0 +1,70 @@
+<div class="container-fluid container-bg " style="height: 100%;">
+    <div class="logo">
+        <p class="text-center logo-text inline">  VidharbhaSatta  </p>
+        <!--        <h1 class="seo-heading "> Satta 150 | Satta150  </h1>-->
+
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading text-center" style="background: #3f51b5;">
+            <h1 style="font-size: 22px;color:#ffff;     font-style: normal; font-weight: bolder ; text-shadow: 0px 0px; color: white">{{title}}
+                Jodi Chart</h1>
+        </div>
+        <div class="panel-body">
+            <table style="width: 100%; text-align:center;" class="panel-chart chart-table" cellpadding="2">
+                <thead>
+                <tr>
+                    <!--                    <th>W</th>-->
+                    <th colspan="2">Date</th>
+                    <th colspan="3">Mon</th>
+                    <th colspan="3">Tue</th>
+                    <th colspan="3">Wed</th>
+                    <th colspan="3">Thu</th>
+                    <th colspan="3">Fri</th>
+                    <th colspan="3">Sat</th>
+                     <th *ngIf="showSunday" colspan="3">Sun</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tbody>
+
+                <tr *ngFor="let d of tableData">
+                    <!--                MON-->
+                    <!--                <td>{{d.week}}</td>-->
+                    <td class="chart_date " colspan="2">{{d.startDate}}<br>To<br>{{d.endDate|date:'dd-MM-yyyy'}}</td>
+                    <!--                <td ><span class="chart_date">{{d.startDate}}</span><br><span class="chart_date">To</span><br><span class="chart_date">{{d.endDate}}</span></td>-->
+
+
+
+                    <td colspan="3" [ngClass]="{'red': d.Mon_dp==true}">{{d.Mon_openingDigit}}{{d.Mon_closingDigit}}</td>
+
+                    <!--TUE-->
+
+                    <td colspan="3" [ngClass]="{'red': d.Tue_dp==true}"><span>{{d.Tue_openingDigit}}{{d.Tue_closingDigit}}</span></td>
+
+                    <!--WED-->
+
+                    <td colspan="3" [ngClass]="{'red': d.Wed_dp==true}">{{d.Wed_openingDigit}}{{d.Wed_closingDigit}}
+
+                        <!--THU-->
+
+                    <td colspan="3" [ngClass]="{'red': d.Thu_dp==true}">{{d.Thu_openingDigit}}{{d.Thu_closingDigit}}</td>
+
+                    <!--                FRI-->
+
+                    <td colspan="3" [ngClass]="{'red': d.Fri_dp==true}">{{d.Fri_openingDigit}}{{d.Fri_closingDigit}}</td>
+
+                    <!--                SAT-->
+
+                    <td colspan="3" [ngClass]="{'red': d.Sat_dp==true}">{{d.Sat_openingDigit}}{{d.Sat_closingDigit}}</td>
+
+
+                    <td colspan="3" *ngIf="showSunday" [ngClass]="{'red': d.Sun_dp==true}" >{{d.Sun_openingDigit}}{{d.Sun_closingDigit}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
