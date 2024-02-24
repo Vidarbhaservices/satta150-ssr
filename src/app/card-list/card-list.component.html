@@ -1,5 +1,5 @@
 <div *ngIf="isVidharbhaDayLoading  || isVidharbhaDayCloseLoading|| isMayurDayLoading ||isMayurDayClosingLoading ||isVidharbhaNightLoading ||isVidharbhaDayCloseLoading|| showJantaBazaarCard||showVidharbhaDayCard||showVidharbhaNightCard ">
-    <h4 class="banner "><span class="blink">*** LIVE RESULT ***</span></h4>
+    <div class="banner "><span class="blink">*** LIVE RESULT ***</span></div>
 </div>
 <div class="satta-result my-2">
 
@@ -9,7 +9,7 @@
         <!--        {{isVidharbhaDayLoading }}  {{isVidharbhaDayCloseLoading}} {{showVidharbhaDayCard}}-->
         <div class="yellowbg">
             <h4>VIDHARBHA MORNING</h4>
-            <ng-container *ngIf="isVidharbhaDayLoading || isVidharbhaNightLoading">
+            <ng-container *ngIf="isVidharbhaDayLoading || isVidharbhaDayCloseLoading">
                 <span class="loading m-4">Loading...</span>
             </ng-container>
             <!--        <ng-container *ngIf="isVidharbhaDayCloseLoading" >-->
