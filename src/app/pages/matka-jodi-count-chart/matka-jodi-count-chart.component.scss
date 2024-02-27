@@ -1,0 +1,169 @@
+/* Common classes */
+.bhagwan,
+.inline8,
+.welcome,
+div .inline6 {
+  margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgb(0 0 0/40%);
+}
+
+.refresh-btn,
+.matka-card button {
+  border: 1px solid #e6e6e6;
+  background: #522f92;
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin: 2px 0 -1px;
+  display: inline-block;
+  transition: all .3s;
+}
+
+/* Buttons */
+.btm-btn-f {
+  background: linear-gradient(45deg, navy, #005780);
+  border: 1px solid #fff;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 6px 11px 5px;
+  transition: all .3s ease-in;
+}
+
+.mp-btn {
+  position: fixed;
+  bottom: 9px;
+  right: 5px;
+  padding: 5px 8px;
+  font-size: 15px;
+  border: 1px solid #fff;
+  text-decoration: none;
+  background-color: #fbc02d;
+  color: #fff;
+  border-radius: 5px;
+}
+.install-btn{
+  position: fixed;
+  bottom: 9px;
+  left: 5px;
+}
+/* Text Styles */
+.inline {
+  background: -webkit-linear-gradient(#ff019c, #72000a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.seo-heading {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+
+}
+
+.logo-text {
+  font-size: 40px;
+}
+
+/* Specific classes */
+.inline8,
+div .inline6 {
+  //background: linear-gradient(187deg, #fc9 50%, #ffc387 50%);
+  border: 2px solid #0095ff;
+  border-style: outset;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 4px 10px;
+  color: #00094d;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.about-us,
+.blue-div,
+.cm-patti,
+.conta,
+.disclamer,
+.faq,
+.ftr-sm,
+.matka-result,
+.mrque-div,
+.paid-gm,
+.pby-us,
+.purpel-header,
+.red-list>div,
+.satta-result,
+.satta-text,
+.slash-text {
+  color: #000;
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: -2px;
+  display: block;
+  font-size: 20px;
+  outline: 4px #fff;
+  outline-offset: -9px;
+  border: 2px solid #0095ff !important;
+  border-style: outset;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 40%);
+}
+
+/* Specific styles */
+.ftr-sm,
+.matka-result,
+.mrque-div,
+.paid-gm,
+.pby-us {
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: -2px;
+  display: block;
+  font-size: 20px;
+  outline: 4px #fff;
+  outline-offset: -9px;
+}
+
+/* Additional styles */
+.ftr-sm {
+  padding: 5px;
+}
+.tags1 {
+  font-size: 10px;
+}
+a, a:hover {
+  text-decoration: none;
+}
+.violet-border {
+  border-top-left-radius: 10px;
+  border: 4px solid #000080;
+}
+.mfnc-ul {
+  list-style: none;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+.mfnc-ul li a {
+  text-decoration: none;
+}
+strong {
+  color: black;
+  font-size: larger;
+}
+h2{
+  color: black;
+}

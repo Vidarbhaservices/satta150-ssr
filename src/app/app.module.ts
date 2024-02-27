@@ -29,6 +29,7 @@ import {getFunctions, provideFunctions} from "@angular/fire/functions";
 import {DatePipe, NgOptimizedImage} from "@angular/common";
 import {HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
 import { TableComponent } from './table/table.component';
+import { MatkaJodiCountChartComponent } from './pages/matka-jodi-count-chart/matka-jodi-count-chart.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#aaa2a2",
@@ -62,6 +63,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     DailyChartComponent,
     JodiPanelComponent,
     TableComponent,
+    MatkaJodiCountChartComponent,
   ],
     imports: [
         BrowserModule,
