@@ -30,6 +30,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
 import {HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
 import { TableComponent } from './table/table.component';
 import { MatkaJodiCountChartComponent } from './pages/matka-jodi-count-chart/matka-jodi-count-chart.component';
+import { DhanvarshaComponent } from './pages/dhanvarsha/dhanvarsha.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#aaa2a2",
@@ -64,6 +65,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     JodiPanelComponent,
     TableComponent,
     MatkaJodiCountChartComponent,
+    DhanvarshaComponent,
   ],
     imports: [
         BrowserModule,

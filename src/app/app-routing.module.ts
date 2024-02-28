@@ -7,6 +7,7 @@ import {DailyChartComponent} from "./daily-chart/daily-chart.component";
 import {PanelChartComponent} from "./panel-chart/panel-chart.component";
 import {JodiPanelComponent} from "./jodi-panel/jodi-panel.component";
 import {MatkaJodiCountChartComponent} from "./pages/matka-jodi-count-chart/matka-jodi-count-chart.component";
+import {DhanvarshaComponent} from "./pages/dhanvarsha/dhanvarsha.component";
 
 const routes: Routes = [
 
@@ -45,7 +46,11 @@ const routes: Routes = [
   {
     path:'matka-jodi-count-chart',
     component:MatkaJodiCountChartComponent
-  }
+  },
+  {
+    path:'dhanvarsha',
+    component:DhanvarshaComponent
+  },
 ];
 
 @NgModule({
