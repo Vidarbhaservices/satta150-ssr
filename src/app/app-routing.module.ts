@@ -8,6 +8,8 @@ import {PanelChartComponent} from "./panel-chart/panel-chart.component";
 import {JodiPanelComponent} from "./jodi-panel/jodi-panel.component";
 import {MatkaJodiCountChartComponent} from "./pages/matka-jodi-count-chart/matka-jodi-count-chart.component";
 import {DhanvarshaComponent} from "./pages/dhanvarsha/dhanvarsha.component";
+import {MatkaJoidFamilyChartComponent} from "./pages/matka-joid-family-chart/matka-joid-family-chart.component";
+import {PanelCountChartComponent} from "./pages/panel-count-chart/panel-count-chart.component";
 
 const routes: Routes = [
 
@@ -51,6 +53,14 @@ const routes: Routes = [
     path:'dhanvarsha',
     component:DhanvarshaComponent
   },
+  {
+    path:'matka-jodi-family-chart',
+    component:MatkaJoidFamilyChartComponent
+  },
+  {
+    path:'panel-count-chart',
+    component:PanelCountChartComponent
+  }
 ];
 
 @NgModule({

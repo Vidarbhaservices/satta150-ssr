@@ -31,6 +31,8 @@ import {HttpClientModule, provideHttpClient, withFetch} from "@angular/common/ht
 import { TableComponent } from './table/table.component';
 import { MatkaJodiCountChartComponent } from './pages/matka-jodi-count-chart/matka-jodi-count-chart.component';
 import { DhanvarshaComponent } from './pages/dhanvarsha/dhanvarsha.component';
+import { MatkaJoidFamilyChartComponent } from './pages/matka-joid-family-chart/matka-joid-family-chart.component';
+import { PanelCountChartComponent } from './pages/panel-count-chart/panel-count-chart.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#aaa2a2",
@@ -66,6 +68,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     TableComponent,
     MatkaJodiCountChartComponent,
     DhanvarshaComponent,
+    MatkaJoidFamilyChartComponent,
+    PanelCountChartComponent,
   ],
     imports: [
         BrowserModule,
