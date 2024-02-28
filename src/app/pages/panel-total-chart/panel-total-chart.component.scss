@@ -1,0 +1,68 @@
+
+.logo-text {
+  font-size: 40px;
+}
+
+/* Specific classes */
+.inline8,
+div .inline6 {
+  //background: linear-gradient(187deg, #fc9 50%, #ffc387 50%);
+  border: 2px solid #0095ff;
+  border-style: outset;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 4px 10px;
+  color: #00094d;
+  text-shadow: 1px 1px 2px #fff;
+}
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.violet-bg {
+  background: #343233;
+}
+.mfnc-ul {
+  list-style: none;
+}
+h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.mfnc-ul h5 {
+  color: #262624;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+.mfnc-ul li a {
+  text-decoration: none;
+}

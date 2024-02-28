@@ -33,6 +33,8 @@ import { MatkaJodiCountChartComponent } from './pages/matka-jodi-count-chart/mat
 import { DhanvarshaComponent } from './pages/dhanvarsha/dhanvarsha.component';
 import { MatkaJoidFamilyChartComponent } from './pages/matka-joid-family-chart/matka-joid-family-chart.component';
 import { PanelCountChartComponent } from './pages/panel-count-chart/panel-count-chart.component';
+import { PanelTotalChartComponent } from './pages/panel-total-chart/panel-total-chart.component';
+import { All220CardsComponent } from './pages/all-220-cards/all-220-cards.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#aaa2a2",
@@ -70,6 +72,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     DhanvarshaComponent,
     MatkaJoidFamilyChartComponent,
     PanelCountChartComponent,
+    PanelTotalChartComponent,
+    All220CardsComponent,
   ],
     imports: [
         BrowserModule,
