@@ -1,0 +1,55 @@
+.fg-main.para-1.bdr.mb-1.p-1 * {
+  font-style: normal!important;
+}
+.card-1212 .fg-c1:nth-child(1), .card-1212 .fg-c1:nth-child(2) {
+  border-top-width: 2px!important;
+}
+.fg-c1 {
+  width: 100%;
+  display: inline-block;
+  padding: 5px;
+  border-color: #cc3333;
+  border-style: solid;
+}
+.fg-div .fg-c1 .fg-p2 {
+  background: linear-gradient(#fd2d2d, #ab0101);
+  font-size: 22px!important;
+  margin-bottom: 5px;
+  padding: 7px 0 7px;
+  border-radius: 10px;
+  clip-path: polygon(0 0,97% 0,100% 48%,100% 80%,100% 100%,3% 100%,0 46%,0 20%);
+  color: #fff;
+  text-shadow: 1px 1px 2px red;
+}
+p {
+  color: #000b65;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.fg-div .fg-c1 .fg-p2 {
+  background: linear-gradient(#cc3333, #fc0101);
+  font-size: 22px!important;
+  margin-bottom: 5px;
+  padding: 7px 0 7px;
+  border-radius: 10px;
+  clip-path: polygon(0 0,97% 0,100% 48%,100% 80%,100% 100%,3% 100%,0 46%,0 20%);
+  color: #fff;
+  text-shadow: 1px 1px 2px red;
+}
+.heading{
+  font-size: 24px;
+  background: linear-gradient(#cc3333, #fc0101);
+font-weight: bolder;
+  color: black;
+}
+.yellowbg{
+
+  --shine-deg: 45deg;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.875rem;
+  //padding: 4rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  perspective: 800px;
+  background: linear-gradient(to bottom, #a6a4a4, #fcfcfc, #a6a4a4);
+}
