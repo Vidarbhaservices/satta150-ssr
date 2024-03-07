@@ -28,7 +28,7 @@ export class GuessingComponent implements OnInit {
     mKalyan: Guessing | undefined
     mTimebazaar: Guessing | undefined
     mMainBazaar: Guessing | undefined
-
+mNotice:Guessing|undefined
 // mMainBazaar:Guessing|undefined
 
 
@@ -58,6 +58,8 @@ export class GuessingComponent implements OnInit {
             this.mMainBazaar = data['main-bazaar'] as Guessing
 // @ts-ignore
             this.mMilanNight = data['milan-night'] as Guessing
+// @ts-ignore
+            this.mNotice = data['notice'] as Guessing
 
         })
     }
