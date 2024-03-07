@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Timestamp} from "@angular/fire/firestore";
+import {DatePipe} from "@angular/common";
 
 interface Guessing {
     market: Market;
@@ -21,6 +22,7 @@ interface Market {
     styleUrl: './guessing.component.scss'
 })
 export class GuessingComponent implements OnInit {
+  date = new Date()
     mMadhurDay: Guessing | undefined
     mMadhurNight: Guessing | undefined
     mMilanDay: Guessing | undefined
@@ -30,10 +32,12 @@ export class GuessingComponent implements OnInit {
     mMainBazaar: Guessing | undefined
 mNotice:Guessing|undefined
 // mMainBazaar:Guessing|undefined
+  todaysDate: string;
 
 
-    constructor(private readonly mFirestore: AngularFirestore) {
-
+    constructor(private readonly mFirestore: AngularFirestore,
+                private  readonly datePipe:DatePipe) {
+this.todaysDate =this.datePipe.transform(this.date,'dd/MM/yyyy')!!
 
     }
 
