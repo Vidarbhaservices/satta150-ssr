@@ -22,8 +22,9 @@ export class JodiPanelComponent {
     this.route.params.subscribe(param=>{
       this.slot = param['id']
       // alert(this.slot)
+
       if(this.slot =='vidharbha-day') {
-        this.title = "Vidharbha Day"
+        this.title = "Vidharbha Morning"
         this.showSunday=true
 
       }
@@ -54,7 +55,7 @@ export class JodiPanelComponent {
       else  if(this.slot =='milan-night') this.title ="Milan Night"
       else  if(this.slot =='main-bazaar-mumbai') this.title ="Main Bazaar"
 
-      else this.title ="Vidharbha Night"
+      else this.title ="Vidharbha Morning"
     })
     this.tableData =[]
 

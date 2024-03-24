@@ -66,7 +66,7 @@ showSunday=false
             this.slot = param['id']
             // alert(this.slot)
             if (this.slot == 'vidharbha-day') {
-                this.title = "Vidharbha Day"
+                this.title = "Vidharbha Morning"
             this.showSunday=true
             }
             if (this.slot == 'vidharbha-night') {
