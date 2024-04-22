@@ -134,6 +134,34 @@
             <a [routerLink]="['panel','vidharbha-day']" class="btn_chart_blue">Panel</a>
         </div>
     </div>
+
+    <!*--------------------------------------------- MADHUR DAY--------------------------------------------->
+    <div class="">
+        <h4> MADHUR MORNING </h4>
+        <ng-container *ngIf="isMadhurMorningLoading || isMadhurMorningCloseLoading">
+            <!--            <span class="loading m-4">Loading...</span>-->
+        </ng-container>
+
+        <ng-container>
+            <h5 class="m-2">
+
+                <span>    {{ getOpeningCombination(mMadhurMorning) }}
+                    - {{getOpeningNumber(mMadhurMorning)}}{{getClosingNumber(mMadhurMorning) }}
+                    - {{getClosingCombination(mMadhurMorning)}}</span>
+            </h5>
+        </ng-container>
+
+        <h6>11:35 AM &nbsp;&nbsp;
+            12:35 PM</h6>
+        <div class="result_timing">
+            <a [routerLink]="['jodi','madhur-morning']" class="btn_chart_blue">Jodi</a>
+        </div>
+        <div class="result_timing_right">
+            <a [routerLink]="['panel','madhur-morning']" class="btn_chart_blue">Panel</a>
+        </div>
+    </div>
+
+
     <!--    SRIDEVI-->
     <div class="">
         <h4>SRIDEVI</h4>
@@ -186,31 +214,6 @@
         </div>
     </div>
 
-    <!*--------------------------------------------- MADHUR DAY--------------------------------------------->
-    <div class="">
-        <h4> MADHUR MORNING </h4>
-        <ng-container *ngIf="isMadhurMorningLoading || isMadhurMorningCloseLoading">
-            <!--            <span class="loading m-4">Loading...</span>-->
-        </ng-container>
-
-        <ng-container>
-            <h5 class="m-2">
-
-                <span>    {{ getOpeningCombination(mMadhurMorning) }}
-                    - {{getOpeningNumber(mMadhurMorning)}}{{getClosingNumber(mMadhurMorning) }}
-                    - {{getClosingCombination(mMadhurMorning)}}</span>
-            </h5>
-        </ng-container>
-
-        <h6>03:05 AM &nbsp;&nbsp;
-            05:05 PM</h6>
-        <div class="result_timing">
-            <a [routerLink]="['jodi','madhur-morning']" class="btn_chart_blue">Jodi</a>
-        </div>
-        <div class="result_timing_right">
-            <a [routerLink]="['panel','madhur-morning']" class="btn_chart_blue">Panel</a>
-        </div>
-    </div>
 
     <!*--------------------------------------------- MILAN DAY--------------------------------------------->
     <div class="">
@@ -228,8 +231,8 @@
             </h5>
         </ng-container>
 
-        <h6>03:00 PM &nbsp;&nbsp;
-            05:00 PM</h6>
+        <h6>03:05 PM &nbsp;&nbsp;
+            05:05 PM</h6>
         <div class="result_timing">
             <a [routerLink]="['jodi','milan-day']" class="btn_chart_blue">Jodi</a>
         </div>
