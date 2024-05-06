@@ -73,13 +73,13 @@ showSunday=false
                 this.title = "Vidharbha Night"
                 this.showSunday=true
             }
-            else if (this.slot == 'mayur-day') this.title = "Janta Bazaar"
             else if (this.slot == 'sridevi') {
                 this.title = "Sridevi"
                 this.showSunday=true
             }
             else if (this.slot == 'mayur-day') {
                 this.title = "Janta Bazaar"
+
                 this.showSunday=true
             }
             else if (this.slot == 'madhur-morning') {
