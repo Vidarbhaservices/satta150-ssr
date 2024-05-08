@@ -200,18 +200,20 @@ export class CardListComponent implements OnInit, OnDestroy {
       this.showMadhurNightCard = true
     } else if (nowHour == 20 && nowMinutes <= 25) {
       this.showMadhurNightCard = true
-    } else if (nowHour >= 20 && nowMinutes < 25) this.showMadhurNightCard = false
+    } else if (nowHour >= 20 && nowMinutes < 25) {
+        this.showMadhurNightCard = false
+    }
     if (nowHour >= 20 && nowMinutes >= 25) {
       this.isMadhuriNightLoading = true
       if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate()) {
         this.isMadhuriNightLoading = false
-
       }
     }
     if (nowHour >= 12 && nowMinutes >= 13) {
       this.isMadhurNightCloseLoading = true
       if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate() && this.mMadhurNight?.closing_digit != null) {
         this.isMadhurNightCloseLoading = false
+
 
       }
     }

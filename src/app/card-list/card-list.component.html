@@ -41,7 +41,7 @@
     </ng-container>
 
     <!*--------------------------------------------- JANTA BAZAAR--------------------------------------------->
-    <ng-container *ngIf="showJantaBazaarCard || isMayurDayLoading || isMayurDayClosingLoading || showMadhurNightCard || showMilanNightCard ">
+    <ng-container *ngIf="showJantaBazaarCard || isMayurDayLoading || isMayurDayClosingLoading   ">
         <div class="yellowbg">
             <h4>JANTA BAZAAR </h4>
             <ng-container *ngIf="  isMayurDayLoading || isMayurDayClosingLoading  ">
@@ -70,6 +70,7 @@
         </div>
     </ng-container>
     <!--    vidharbha night closing-->
+
     <ng-container *ngIf="showVidharbhaNightCard || isVidharbhaNightLoading  || isVidharbhaNightClosingLoading ">
         <div class="yellowbg" >
             <h4>VIDHARBHA NIGHT</h4>
@@ -405,6 +406,7 @@
         <ng-container *ngIf="isMadhuriNightLoading || isMadhurNightCloseLoading">
             <span class="loading m-4">Loading...</span>
         </ng-container>
+
         <ng-container>
             <h5 class="m-2">
 
