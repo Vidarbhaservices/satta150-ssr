@@ -49,6 +49,8 @@ export class CardListComponent implements OnInit, OnDestroy {
     showJantaBazaarCard = false
     showMadhurNightCard = false
     showMilanNightCard = false
+    showMadhurMorningCard = false
+    showTimeBazaarCard=false
     isVidharbhaDayCloseLoading = false
     isVidharbhaNightLoading = false
     isVidharbhaNightClosingLoading = false
@@ -191,8 +193,7 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
  getMadhurNightLoading(mMadhurNight: DataModel) {
-
-    const nowHour = this.now.getHours()
+        const nowHour = this.now.getHours()
     const nowMinutes = this.now.getMinutes()
 //*START LOADING FROM HERE
     if (nowHour == 20 && nowMinutes >= 25) {
@@ -213,13 +214,13 @@ export class CardListComponent implements OnInit, OnDestroy {
       this.isMadhurNightCloseLoading = true
       if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate() && this.mMadhurNight?.closing_digit != null) {
         this.isMadhurNightCloseLoading = false
-
-
       }
     }
 
   }
-  getMilanNightLoadingMYCODE(mMilanNight: DataModel) {
+
+
+  getMilanNightLoading(mMilanNight: DataModel) {
 
     const nowHour = this.now.getHours()
     const nowMinutes = this.now.getMinutes()
@@ -229,8 +230,8 @@ export class CardListComponent implements OnInit, OnDestroy {
       this.showMilanNightCard = true
     } else if (nowHour == 21) {
       this.showMilanNightCard = true
-    } else if (nowHour >= 20 && nowMinutes < 25) this.showMilanNightCard = false
-    if (nowHour >= 20 && nowMinutes >= 25) {
+    } else if (nowHour >= 20 && nowMinutes < 55) this.showMilanNightCard = false
+    if (nowHour >= 20 && nowMinutes >= 55) {
       this.isMilanNightLoading = true
       if (mMilanNight?.timestamp.toDate().getDate() == new Date().getDate()) {
         this.isMilanNightLoading = false
@@ -239,24 +240,23 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
     if (nowHour >= 23 && nowMinutes >= 0) {
       this.isMilanNightCloseLoading = true
-      if(mMilanNight?.timestamp.toDate().getDate() == new Date().getDate() && this.mMilanNight?.closing_digit != null) {
+      if(mMilanNight?.timestamp.toDate().getDate() == new Date().getDate() && mMilanNight?.closing_digit != null) {
         this.isMilanNightCloseLoading = false
-
       }
     }
 
   }
 
   //GEMINI CODE
-  getMilanNightLoading(mMilanNight: DataModel) {
+  getMilanNightLoadingxx(mMilanNight: DataModel) {
     const now = this.now;
     const hour = now.getHours();
     const minutes = now.getMinutes();
 
     // Combined loading and closing loading checks with single date comparison
-    this.isMilanNightLoading = hour >= 20 && minutes >= 25;
-    this.isMilanNightCloseLoading = hour >= 12 && minutes >= 13; // Adjust based on your closing time
-
+    this.isMilanNightLoading = hour >= 20  ;
+    this.isMilanNightCloseLoading = hour >= 22 && minutes >= 50; // Adjust based on your closing time
+      alert(hour >= 20 )
     // Refine loading states based on data and date
     if (mMilanNight) {
       const milanNightDate = mMilanNight.timestamp.toDate().getDate();
@@ -267,6 +267,7 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     // Show card based on loading state
     this.showMilanNightCard = this.isMilanNightLoading || this.isMilanNightCloseLoading;
+    alert(this.isMilanNightLoading)
   }
 
     vidharbhaNightLoading(mVidharbhaNight: DataModel) {
@@ -401,14 +402,14 @@ export class CardListComponent implements OnInit, OnDestroy {
         // 31
         if ((nowHour == 11 && nowMinutes > 25)) {
             // alert('true')
-            // this.showJantaBazaarCard = true
+            this.showMadhurMorningCard = true
         } else if (nowHour == 12) {
-            // this.showJantaBazaarCard = true
+            this.showMadhurMorningCard
         } else if (((nowHour == 12) && nowMinutes < 31)) {
-            // this.showJantaBazaarCard = true
+            this.showMadhurMorningCard
         } else {
             // alert('false')
-            // this.showJantaBazaarCard = false
+            this.showMadhurMorningCard = false
         }
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
@@ -443,14 +444,13 @@ export class CardListComponent implements OnInit, OnDestroy {
         if ((nowHour == 13 && nowMinutes > 0)) {
             // alert('true')
             // alert('true')
-            // this.showJantaBazaarCard = true
-        } else if (nowHour == 14) {
-            // this.showJantaBazaarCard = true
+this.showTimeBazaarCard=true        } else if (nowHour == 14) {
+            this.showTimeBazaarCard=true
         } else if (((nowHour == 14) && nowMinutes < 0)) {
-            // this.showJantaBazaarCard = true
+            this.showTimeBazaarCard=true
         } else {
             // alert('false')
-            // this.showJantaBazaarCard = false
+            this.showTimeBazaarCard=true
         }
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
@@ -850,7 +850,12 @@ export class CardListComponent implements OnInit, OnDestroy {
 
 
   isLoading() {
-    return this.isVidharbhaDayLoading  || this.isVidharbhaDayCloseLoading|| this.isMayurDayLoading ||this.isMayurDayClosingLoading || this.isVidharbhaNightLoading ||this.isVidharbhaDayCloseLoading|| this.showJantaBazaarCard||this.showVidharbhaDayCard||this.showVidharbhaNightCard
+    return this.isVidharbhaDayLoading  || this.isVidharbhaDayCloseLoading||
+        this.isMayurDayLoading ||this.isMayurDayClosingLoading ||
+        this.isVidharbhaNightLoading ||this.isVidharbhaDayCloseLoading||
+        this.showJantaBazaarCard||this.showVidharbhaDayCard||
+        this.showVidharbhaNightCard||this.showMadhurNightCard||this.showMilanNightCard
+      ||this.showTimeBazaarCard ||this.showMadhurMorningCard
   }
 }
 
