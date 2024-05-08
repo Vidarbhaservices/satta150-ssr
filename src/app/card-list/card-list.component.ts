@@ -38,7 +38,6 @@ export class CardListComponent implements OnInit, OnDestroy {
     mMilanNight?: DataModel | undefined
     mMayurDay?: DataModel
     mSridevi?: DataModel
-
     mMadhurMorning?: DataModel
     mTimeBazaar?: DataModel
     mMilanDay?: DataModel
@@ -48,6 +47,8 @@ export class CardListComponent implements OnInit, OnDestroy {
     showVidharbhaDayCard = false
     showVidharbhaNightCard = false
     showJantaBazaarCard = false
+    showMadhurNightCard = false
+    showMilanNightCard = false
     isVidharbhaDayCloseLoading = false
     isVidharbhaNightLoading = false
     isVidharbhaNightClosingLoading = false
@@ -73,24 +74,10 @@ export class CardListComponent implements OnInit, OnDestroy {
     isMainBazaarCloseLoading = false;
     now = new Date()
 
-
-
-    //now = firebase.firestore.Timestamp.now()
     private hours: number;
     private minutes: number;
     private seconds: number;
 
-    mMilanDay$!: SlotData|undefined
-    mRajdhaniDay$!: SlotData | undefined
-    mTimeBazaar$!: Observable<SlotAPI>
-    mRajdhaniNight$!: Observable<SlotAPI>
-    mSrideviNight$!: Observable<SlotAPI>
-    mKalyanNight$!: Observable<SlotAPI>
-    mKalyanNight!: SlotData | undefined
-    mMainBazaar$!: Observable<SlotAPI>
-    mMadhurNight$!: Observable<SlotAPI>
-    mMadhurMorning$!: Observable<SlotAPI>
-    mMilanNight$!: Observable<SlotAPI>
 
 
     constructor(
@@ -106,80 +93,19 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-
         this.getVidharbhaDayData()
-
         this.getVidharbhaNight()
-
         this.getMayurDay()
         this.getSridevi()
         this.getTimeBazaar()
         this.getMadhurMornig()
         this.getMilanDay()
         this.getKalyan()
-
-      this.  getSrideviNight()
+        this.getSrideviNight()
         this.getMadhurNight()
         this.getMilanNight()
         this.getMainBazaar()
-        // this.mKalyan$ = this.marketService.fetchAPI('kalyan') //done
-        // this.mMilanDay$ = this.marketService.fetchAPI('milanday') //done
-        // this.mRajdhaniDay$ = this.marketService.fetchAPI('rajdhani_day')
-        // this.mTimeBazaar$ = this.marketService.fetchAPI('time_bazar')  //done
-        // this.mRajdhaniNight$ = this.marketService.fetchAPI('rajdhani_night')
-        // this.mSrideviNight$ = this.marketService.fetchAPI('sridevi_night') //done
-        // this.mKalyanNight$ = this.marketService.fetchAPI('kalyan_night')
-        // this.mMainBazaar$ = this.marketService.fetchAPI('main_bazar') //done
-        // this.mSridevi$ = this.marketService.fetchAPI('sridevi') //done
-        // this.mMadhurNight$ = this.marketService.fetchAPI('madhur_night') //done
-        // this.mMadhurMorning$ = this.marketService.fetchAPI('madhur_morning') //done
-        // this.mMilanNight$ = this.marketService.fetchAPI('milan_night') //done
-        // this.marketService.fetchAPI('all').subscribe(res => {
-        //     console.log(JSON.stringify(res))
-        //     const arr = res.data
-        //     console.log('MILAN MORNING', arr.find(x => x.name == "MILAN MORNING"))
-        //     // @ts-ignore
-        //     this.mMilanDay$ = arr.find(x => x.name == "MILAN DAY")
-        //     this.mRajdhaniDay$ = arr.find(x => x.name == "RAJDHANI DAY")
-        //     // this.mTimeBazaar = arr.find(x => x.name == 'TIME BAZAR')
-        //     // this.mSridevi = arr.find(x => x.name == 'SRIDEVI')
-        //     this.mKalyanNight = arr.find(x => x.name == "KALYAN NIGHT")
-        //     // this.mMadhurMorning$ = arr.find(x => x.name == "MADHUR MORNING")
-        //     this.mMadhurNight = arr.find(x => x.name == "MADHUR NIGHT")
-        //     this.mSrideviNight = arr.find(x => x.name == 'SRIDEVI NIGHT')
-        //     this.mMilanNight = arr.find(x => x.name == 'MILAN NIGHT')
-        //     this.mMainBazaarMumbai = arr.find(x => x.name == 'MAIN BAZAR')
-        //     this.mKalyan = arr.find(x => x.name == 'KALYAN')
-        // })
-
-        // this.vidharbhaLoading()
-        // this.marketService.sendMarketAutoResult().subscribe(res => {
-        //     // alert(JSON.stringify(res))
-        //     console.log(res)
-        // })
-        // Fetch all observables concurrently
-        // forkJoin(observables).subscribe(
-        //     (results: any[]) => {
-        //         // Handle results here
-        //         this.mKalyan$ = results[0];
-        //         this.mMilanDay$ = results[1];
-        //         this.mRajdhaniDay$ = results[2];
-        //         this.mTimeBazaar$ =results[3]
-        //         this.mRajdhaniNight$ =results[4]
-        //         this.mSrideviNight$ =results[5]
-        //         this.mKalyanNight$=results[6]
-        //         this.mMainBazaar$ =results[7]
-        //         this.mSridevi$ =results[8]
-        //         this.mMadhurNight$ =results[9]
-        //         this.mMadhurMorning$ =results[10]
-        //         this.mMilanNight$ =results[11]
-        //         // Assign other results similarly
-        //     },
-        //     (error) => {
-        //         // Handle error
-        //     }
-        // );
-    }
+       }
 
 
     getOpeningCombination(model: DataModel | undefined) {
@@ -236,13 +162,9 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     vidharbhaDayLoading(mVidharbhaDay: DataModel) {
 
-        const slotHour = mVidharbhaDay?.timestamp.toDate().getHours()
-        const slotTime = mVidharbhaDay?.timestamp.toDate().getMinutes()
         const nowHour = this.now.getHours()
         const nowMinutes = this.now.getMinutes()
-        // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
-        // alert(`${slotHour}: ${slotTime}`)
-// alert(this.mVidharbhaDay?.timestamp.toDate())
+
         if (nowHour == 11 && nowMinutes >= 13) {
             this.showVidharbhaDayCard = true
         } else if ((nowHour == 12 && nowMinutes <= 15)) {
@@ -250,18 +172,15 @@ export class CardListComponent implements OnInit, OnDestroy {
         } else if (nowHour >= 12 && nowMinutes < 15) this.showVidharbhaDayCard = false
 
         if (nowHour >= 11 && nowMinutes >= 13) {
-// alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
+
             this.isVidharbhaDayLoading = true
-            // console.log('OPEN LOADING')
+
             if (mVidharbhaDay?.timestamp.toDate().getDate() == new Date().getDate()) {
                 this.isVidharbhaDayLoading = false
-                // console.log('OPEN LOADING CLOSED')
-                // console.log(new Date().getDate())
-                // console.log(mVidharbhaDay?.timestamp.toDate().getDate())
+
             }
         }
         if (nowHour >= 12 && nowMinutes >= 13) {
-// alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isVidharbhaDayCloseLoading = true
             if (mVidharbhaDay?.timestamp.toDate().getDate() == new Date().getDate() && mVidharbhaDay?.closing_digit != null) {
                 this.isVidharbhaDayCloseLoading = false
@@ -270,6 +189,83 @@ export class CardListComponent implements OnInit, OnDestroy {
         }
 
     }
+
+ getMadhurNightLoading(mMadhurNight: DataModel) {
+
+    const nowHour = this.now.getHours()
+    const nowMinutes = this.now.getMinutes()
+//*START LOADING FROM HERE
+    if (nowHour == 20 && nowMinutes >= 25) {
+      //*SHOWING LOADING CARD
+      this.showMadhurNightCard = true
+    } else if (nowHour == 20 && nowMinutes <= 25) {
+      this.showMadhurNightCard = true
+    } else if (nowHour >= 20 && nowMinutes < 25) this.showMadhurNightCard = false
+    if (nowHour >= 20 && nowMinutes >= 25) {
+      this.isMadhuriNightLoading = true
+      if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate()) {
+        this.isMadhuriNightLoading = false
+
+      }
+    }
+    if (nowHour >= 12 && nowMinutes >= 13) {
+      this.isMadhurNightCloseLoading = true
+      if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate() && this.mMadhurNight?.closing_digit != null) {
+        this.isMadhurNightCloseLoading = false
+
+      }
+    }
+
+  }
+  getMilanNightLoadingMYCODE(mMilanNight: DataModel) {
+
+    const nowHour = this.now.getHours()
+    const nowMinutes = this.now.getMinutes()
+//*START LOADING FROM HERE
+    if (nowHour == 21 && nowMinutes >= 0) {
+      //*SHOWING LOADING CARD
+      this.showMilanNightCard = true
+    } else if (nowHour == 21) {
+      this.showMilanNightCard = true
+    } else if (nowHour >= 20 && nowMinutes < 25) this.showMilanNightCard = false
+    if (nowHour >= 20 && nowMinutes >= 25) {
+      this.isMilanNightLoading = true
+      if (mMilanNight?.timestamp.toDate().getDate() == new Date().getDate()) {
+        this.isMilanNightLoading = false
+
+      }
+    }
+    if (nowHour >= 23 && nowMinutes >= 0) {
+      this.isMilanNightCloseLoading = true
+      if(mMilanNight?.timestamp.toDate().getDate() == new Date().getDate() && this.mMilanNight?.closing_digit != null) {
+        this.isMilanNightCloseLoading = false
+
+      }
+    }
+
+  }
+
+  //GEMINI CODE
+  getMilanNightLoading(mMilanNight: DataModel) {
+    const now = this.now;
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+
+    // Combined loading and closing loading checks with single date comparison
+    this.isMilanNightLoading = hour >= 20 && minutes >= 25;
+    this.isMilanNightCloseLoading = hour >= 12 && minutes >= 13; // Adjust based on your closing time
+
+    // Refine loading states based on data and date
+    if (mMilanNight) {
+      const milanNightDate = mMilanNight.timestamp.toDate().getDate();
+      const currentDate = new Date().getDate();
+      this.isMilanNightLoading = this.isMilanNightLoading && milanNightDate !== currentDate;
+      this.isMilanNightCloseLoading = this.isMilanNightCloseLoading && milanNightDate === currentDate && mMilanNight.closing_digit !== null;
+    }
+
+    // Show card based on loading state
+    this.showMilanNightCard = this.isMilanNightLoading || this.isMilanNightCloseLoading;
+  }
 
     vidharbhaNightLoading(mVidharbhaNight: DataModel) {
 
@@ -599,7 +595,7 @@ export class CardListComponent implements OnInit, OnDestroy {
             }
         }
     }
-   getMadhurNightLoading(mMadhurNight: DataModel) {
+   getMadhurNightLoadingOLD(mMadhurNight: DataModel) {
 
         const nowHour = this.now.getHours()
         const nowMinutes = this.now.getMinutes()
@@ -609,11 +605,11 @@ export class CardListComponent implements OnInit, OnDestroy {
         // 31
         if ((nowHour == 20 && nowMinutes > 30)) {
             // alert('true')
-            // this.showJantaBazaarCard = true
+          this.showMadhurNightCard = true
         } else if (nowHour == 20) {
-            // this.showJantaBazaarCard = true
+            this.showMadhurNightCard = true
         } else if (((nowHour == 20) && nowMinutes < 30)) {
-            // this.showJantaBazaarCard = true
+            this.showMadhurNightCard = true
         } else {
             // alert('false')
             // this.showJantaBazaarCard = false
@@ -636,7 +632,7 @@ export class CardListComponent implements OnInit, OnDestroy {
             }
         }
     }
-    getMilanNightLoading(mMilanNight: DataModel) {
+    getMilanNightLoadingOLD(mMilanNight: DataModel) {
 
         const nowHour = this.now.getHours()
         const nowMinutes = this.now.getMinutes()
@@ -851,7 +847,9 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
 
-
+  isLoading() {
+    return this.isVidharbhaDayLoading  || this.isVidharbhaDayCloseLoading|| this.isMayurDayLoading ||this.isMayurDayClosingLoading || this.isVidharbhaNightLoading ||this.isVidharbhaDayCloseLoading|| this.showJantaBazaarCard||this.showVidharbhaDayCard||this.showVidharbhaNightCard
+  }
 }
 
 //MORNING
