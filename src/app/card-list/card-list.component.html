@@ -103,38 +103,37 @@
         </div>
     </ng-container>
 
-  <ng-container *ngIf="showMadhurNightCard || isMadhuriNightLoading  || isMadhurNightCloseLoading ">
-    <div class="yellowbg" >
-      <h4>MADHUR NIGHT</h4>
-      <ng-container *ngIf="isMadhuriNightLoading  || isMadhurNightCloseLoading ">
-          {{isMadhuriNightLoading}} {{isMadhurNightCloseLoading}}
-        <span class="loading m-4">Loading...</span>
-      </ng-container>
-      <!--        <ng-container *ngIf="isVidharbhaDayCloseLoading" >-->
-      <!--            <span class="loading m-4">Loading2...</span>-->
-      <!--        </ng-container>-->
-      <!--        <ng-container *ngIf="!isVidharbhaNightLoading && !isVidharbhaNightClosingLoading" >-->
-      <h5>
-            <span *ngIf="!isMadhuriNightLoading ">      {{ getOpeningCombination(mMadhurNight) }}
-              -{{getOpeningNumber(mMadhurNight)}}{{getClosingNumber(mMadhurNight) }}
-              -{{getClosingCombination(mMadhurNight)}}</span>
-      </h5>
-      <!--        </ng-container>-->
-      <!--        <ng-container  *ngIf=" isVidharbhaNightLoading">-->
-      <!--            <h5 class="mt-2">-->
-      <!--                <span *ngIf="isVidharbhaNightClosingLoading ">  {{ getOpeningCombination(mVidharbhaDay) }}-{{getOpeningNumber(mVidharbhaDay)}} -</span>-->
-      <!--            </h5>-->
-      <!--        </ng-container>-->
-      <h6 class="m-2">08:30 PM &nbsp;&nbsp;
-        10:30 PM</h6>
-      <div class="result_timing">
-        <a [routerLink]="['jodi','madhur-night']" class="btn_chart_blue">Jodi</a>
-      </div>
-      <div class="result_timing_right">
-        <a [routerLink]="['panel','madhur-night']" class="btn_chart_blue">Panel</a>
-      </div>
-    </div>
-  </ng-container>
+<!--  <ng-container *ngIf="showMadhurNightCard || isMadhuriNightLoading  || isMadhurNightCloseLoading ">-->
+<!--    <div class="yellowbg" >-->
+<!--      <h4>MADHUR NIGHT</h4>-->
+<!--      <ng-container *ngIf="isMadhuriNightLoading  || isMadhurNightCloseLoading ">-->
+<!--        <span class="loading m-4">Loading...</span>-->
+<!--      </ng-container>-->
+<!--      &lt;!&ndash;        <ng-container *ngIf="isVidharbhaDayCloseLoading" >&ndash;&gt;-->
+<!--      &lt;!&ndash;            <span class="loading m-4">Loading2...</span>&ndash;&gt;-->
+<!--      &lt;!&ndash;        </ng-container>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <ng-container *ngIf="!isVidharbhaNightLoading && !isVidharbhaNightClosingLoading" >&ndash;&gt;-->
+<!--      <h5>-->
+<!--            <span *ngIf="!isMadhuriNightLoading ">      {{ getOpeningCombination(mMadhurNight) }}-->
+<!--              -{{getOpeningNumber(mMadhurNight)}}{{getClosingNumber(mMadhurNight) }}-->
+<!--              -{{getClosingCombination(mMadhurNight)}}</span>-->
+<!--      </h5>-->
+<!--      &lt;!&ndash;        </ng-container>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <ng-container  *ngIf=" isVidharbhaNightLoading">&ndash;&gt;-->
+<!--      &lt;!&ndash;            <h5 class="mt-2">&ndash;&gt;-->
+<!--      &lt;!&ndash;                <span *ngIf="isVidharbhaNightClosingLoading ">  {{ getOpeningCombination(mVidharbhaDay) }}-{{getOpeningNumber(mVidharbhaDay)}} -</span>&ndash;&gt;-->
+<!--      &lt;!&ndash;            </h5>&ndash;&gt;-->
+<!--      &lt;!&ndash;        </ng-container>&ndash;&gt;-->
+<!--      <h6 class="m-2">08:30 PM &nbsp;&nbsp;-->
+<!--        10:30 PM</h6>-->
+<!--      <div class="result_timing">-->
+<!--        <a [routerLink]="['jodi','madhur-night']" class="btn_chart_blue">Jodi</a>-->
+<!--      </div>-->
+<!--      <div class="result_timing_right">-->
+<!--        <a [routerLink]="['panel','madhur-night']" class="btn_chart_blue">Panel</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </ng-container>-->
 <!--MILAN NIGHT-->
     <ng-container *ngIf="showMilanNightCard || isMilanNightLoading  || isMilanNightCloseLoading ">
         <div class="yellowbg" >
