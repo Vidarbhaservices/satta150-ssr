@@ -37,6 +37,7 @@ import { PanelTotalChartComponent } from './pages/panel-total-chart/panel-total-
 import { All220CardsComponent } from './pages/all-220-cards/all-220-cards.component';
 import { GuessingComponent } from './guessing/guessing.component';
 import { CardList2Component } from './card-list2/card-list2.component';
+import { CountUpDirective } from './count-up.directive';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#aaa2a2",
@@ -78,6 +79,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     All220CardsComponent,
     GuessingComponent,
     CardList2Component,
+    CountUpDirective,
   ],
     imports: [
         BrowserModule,

@@ -28,6 +28,8 @@ export interface SlotData {
   styleUrls: ['./card-list.component.scss']
 })
 export class CardListComponent implements OnInit, OnDestroy {
+  isSunday = new Date().getDay() === 0;
+  isSaturday = new Date().getDay() === 6;
   todaysDate: string | null;
   mDate = new Date();
   _destroyed = new Subject()
@@ -119,7 +121,9 @@ export class CardListComponent implements OnInit, OnDestroy {
   getOpeningCombination(model: DataModel | undefined) {
     return model?.opening_number.toString() || ''
   }
-
+  getOpeningCombinationInt(model: DataModel | undefined) {
+    return parseInt(model?.opening_number!!)
+  }
   getOpeningNumber(model: DataModel | undefined) {
     return model?.opening_digit?.toString() || ''
 
@@ -258,9 +262,11 @@ export class CardListComponent implements OnInit, OnDestroy {
     if (nowHour == 20 && nowMinutes >= 20) {
       this.showMadhurNightCard = true
       this.isMadhuriNightLoading = true
+
+
       if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate()) {
         this.isMadhuriNightLoading = false
-
+        this.showMadhurNightCard = false
       }
     }
 
@@ -683,7 +689,7 @@ export class CardListComponent implements OnInit, OnDestroy {
       .subscribe(
         res => {
           this.mMayurDay = res[0]
-          this.mayurDayLoading(this.mMayurDay)
+                this.mayurDayLoading(this.mMayurDay)
         }
       )
   }
@@ -698,7 +704,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mSridevi = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.srideviLoading(this.mSridevi)
+          if (!this.isSunday)     this.srideviLoading(this.mSridevi)
         }
       )
   }
@@ -713,7 +719,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mMadhurMorning = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.madhurMorningLoading(this.mMadhurMorning)
+                 this.madhurMorningLoading(this.mMadhurMorning)
         }
       )
   }
@@ -728,7 +734,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mTimeBazaar = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          // this.timeBazaarLoading(this.mTimeBazaar)
+          // if (!this.isSunday)   this.gettim(this.mTimeBazaar)
         }
       )
   }
@@ -742,7 +748,7 @@ export class CardListComponent implements OnInit, OnDestroy {
         res => {
           // this.mMayurDay = res[0]
           this.mMilanDay = res[0]
-          this.isMilanLoading(this.mMilanDay)
+          if (!this.isSunday)      this.isMilanLoading(this.mMilanDay)
 
 //           const { updatedOpenLoading, updatedCloseLoading, updatedLoadingCard } =   this.showMarketLoading(this.mMilanDay, this.isisMilanDayLoading, 14, 50, 16, 45, this.isMilanDayCloseLoading, this.showMilanDayCard)
 // alert(updatedOpenLoading + updatedCloseLoading +updatedLoadingCard)
@@ -765,7 +771,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mKalyan = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.getKalyanLoading(this.mKalyan)
+          if (!this.isSunday)     this.getKalyanLoading(this.mKalyan)
         }
       )
   }
@@ -780,7 +786,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mSrideviNight = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.getSrideviNightLoading(this.mSrideviNight)
+              this.getSrideviNightLoading(this.mSrideviNight)
         }
       )
   }
@@ -795,7 +801,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mMadhurNight = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.getMadhurNightLoading(this.mMadhurNight)
+          if (!this.isSunday)      this.getMadhurNightLoading(this.mMadhurNight)
         }
       )
   }
@@ -810,7 +816,7 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mMilanNight = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.getMilanNightLoading(this.mMilanNight)
+          if (!this.isSunday)      this.getMilanNightLoading(this.mMilanNight)
         }
       )
   }
@@ -825,7 +831,8 @@ export class CardListComponent implements OnInit, OnDestroy {
           // this.mMayurDay = res[0]
           this.mMainBazaarMumbai = res[0]
           // this.mayurDayLoading(this.mMayurDay)
-          this.getMainBazaarLoading(this.mMainBazaarMumbai)
+
+          if (!this.isSaturday && !this.isSunday)     this.getMainBazaarLoading(this.mMainBazaarMumbai)
         }
       )
   }
