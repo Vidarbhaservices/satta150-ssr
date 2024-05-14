@@ -54,13 +54,16 @@ tr td:nth-child(1) {
 tbody td {
   padding: 5px 0;
   font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
 }
 .r {
   color: red;
 }
 tbody tr td:nth-child(2), tbody tr td:nth-child(5), tbody tr td:nth-child(8), tbody tr td:nth-child(11), tbody tr td:nth-child(14), tbody tr td:nth-child(17), tbody tr td:nth-child(20), tbody tr td:nth-child(23) {
   border-right-width: 0;
-  font-size: 13px;
+  font-size: 18px;
+  font-weight: bold;
+
 }
 table, th, td {
   border: 1px solid rgb(175, 17, 17);
@@ -75,6 +78,7 @@ table, th, td {
 
 tr td:nth-child(1), tbody tr td:nth-child(2), tbody tr td:nth-child(5), tbody tr td:nth-child(8), tbody tr td:nth-child(11), tbody tr td:nth-child(14), tbody tr td:nth-child(17), tbody tr td:nth-child(20), tbody tr td:nth-child(23), tbody tr td:nth-child(4), tbody tr td:nth-child(7), tbody tr td:nth-child(10), tbody tr td:nth-child(13), tbody tr td:nth-child(16), tbody tr td:nth-child(19), tbody tr td:nth-child(22), tbody tr td:nth-child(25), tbody tr td:nth-child(28) {
   font-size: 9px; font-weight: bolder;
+
 }
 table, th, td {
   border: 1px solid #859fb7;
@@ -90,4 +94,9 @@ thead tr th:nth-child(1) {
 }
 .logo-text {
   font-size: 30px;
+}
+td{
+  background-color: #fff; /* Adjust background color as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-radius: 4px; /* Rounded corners */
 }

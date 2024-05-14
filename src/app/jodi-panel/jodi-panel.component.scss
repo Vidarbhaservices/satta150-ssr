@@ -89,3 +89,8 @@ thead tr th:nth-child(1) {
 .logo-text {
   font-size: 30px;
 }
+td{
+  background-color: #fff; /* Adjust background color as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-radius: 4px; /* Rounded corners */
+}
