@@ -563,8 +563,9 @@ export class CardListComponent implements OnInit, OnDestroy {
             this.isKalyanLoading = true
             this.showKalyanLoadingCard = true
             if (mKalyan && mKalyan.timestamp.toDate().getDate() === now.getDate()) {
-                setTimeout(() => {this.showKalyanLoadingCard = false}, 30000)
-            }
+                setTimeout(() => {
+                    this.showKalyanLoadingCard = false;
+                }, 30000);            }
 
             if (nowHour >= 16 && nowMinutes >= 50 || (nowHour >= 17)) {
                 this.isKalyanCloseLoading = true
