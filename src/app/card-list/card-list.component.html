@@ -246,6 +246,39 @@
         </div>
     </ng-container>
 
+    <!*-- KALYAN-->
+    <ng-container *ngIf=" showKalyanLoadingCard|| isKalyanLoading  || isKalyanCloseLoading ">
+        <div class="yellowbg">
+            <h4>KALYAN</h4>
+            <ng-container *ngIf="isKalyanLoading  || isKalyanCloseLoading ">
+                <span class="loading m-4">Loading...</span>
+            </ng-container>
+            <!--        <ng-container *ngIf="isVidharbhaDayCloseLoading" >-->
+            <!--            <span class="loading m-4">Loading2...</span>-->
+            <!--        </ng-container>-->
+            <!--        <ng-container *ngIf="!isVidharbhaNightLoading && !isVidharbhaNightClosingLoading" >-->
+            <h5>
+            <span *ngIf="!isKalyanCloseLoading ">      {{ getOpeningCombination(mKalyan) }}
+                -{{ getOpeningNumber(mKalyan) }}{{ getClosingNumber(mKalyan) }}
+                -{{ getClosingCombination(mKalyan) }}</span>
+            </h5>
+            <!--        </ng-container>-->
+            <!--        <ng-container  *ngIf=" isVidharbhaNightLoading">-->
+            <!--            <h5 class="mt-2">-->
+            <!--                <span *ngIf="isVidharbhaNightClosingLoading ">  {{ getOpeningCombination(mVidharbhaDay) }}-{{getOpeningNumber(mVidharbhaDay)}} -</span>-->
+            <!--            </h5>-->
+            <!--        </ng-container>-->
+            <h6 class="m-2">3:45 PM &nbsp;&nbsp;
+                5:45 PM</h6>
+            <div class="result_timing">
+                <a [routerLink]="['jodi','kaylan']" class="btn_chart_blue">Jodi</a>
+            </div>
+            <div class="result_timing_right">
+                <a [routerLink]="['panel','kalyan']" class="btn_chart_blue">Panel</a>
+            </div>
+        </div>
+    </ng-container>
+
 
     <!*--SRIDEVI NIGHT-->
     <ng-container *ngIf=" showSrideviNightCard|| isSrideviNightLoading || isSrideviNightCloseLoading">
