@@ -384,7 +384,7 @@ export class CardListComponent implements OnInit, OnDestroy {
 
 // alert(nowHour>=16 && nowMinutes  >26)
         // 31
-        if ((nowHour == 16 && nowMinutes > 26)) {
+        if ((nowHour == 13 && nowMinutes > 15)) {
             // alert('true')
             this.showJantaBazaarCard = true
         } else if (nowHour == 17) {
@@ -693,7 +693,7 @@ export class CardListComponent implements OnInit, OnDestroy {
             .subscribe(
                 res => {
                     this.mMayurDay = res[0]
-                    this.mayurDayLoading(this.mMayurDay)
+                    // this.mayurDayLoading(this.mMayurDay)
                 }
             )
     }
