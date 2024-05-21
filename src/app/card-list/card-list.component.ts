@@ -91,6 +91,8 @@ export class CardListComponent implements OnInit, OnDestroy {
     private minutes: number;
     private seconds: number;
 
+     nowHour = this.now.getHours()
+     nowMinutes = this.now.getMinutes()
 
     constructor(
         private readonly marketService: MarketService,
@@ -180,16 +182,15 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     vidharbhaDayLoading(mVidharbhaDay: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+   
 
-        if (nowHour == 11 && nowMinutes >= 13) {
+        if (this.nowHour == 11 && this.nowMinutes >= 13) {
             this.showVidharbhaDayCard = true
-        } else if ((nowHour == 12 && nowMinutes <= 15)) {
+        } else if ((this.nowHour == 12 && this.nowMinutes <= 15)) {
             this.showVidharbhaDayCard = true
-        } else if (nowHour >= 12 && nowMinutes < 15) this.showVidharbhaDayCard = false
+        } else if (this.nowHour >= 12 && this.nowMinutes < 15) this.showVidharbhaDayCard = false
 
-        if (nowHour >= 11 && nowMinutes >= 13) {
+        if (this.nowHour >= 11 && this.nowMinutes >= 13) {
 
             this.isVidharbhaDayLoading = true
 
@@ -199,7 +200,7 @@ export class CardListComponent implements OnInit, OnDestroy {
             }
         }
         // alert(mVidharbhaDay?.timestamp.toDate().getDate() == new Date().getDate() && mVidharbhaDay?.closing_digit != null)
-        if (nowHour >= 12 && nowMinutes >= 15) {
+        if (this.nowHour >= 12 && this.nowMinutes >= 15) {
 
 
             this.isVidharbhaDayCloseLoading = !(mVidharbhaDay?.timestamp.toDate().getDate() == new Date().getDate() && mVidharbhaDay?.closing_digit != null);
@@ -211,16 +212,15 @@ export class CardListComponent implements OnInit, OnDestroy {
                        closeHour: number, closeMiute: number, closeLoading: boolean, loadingCard: boolean
     ) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
-//OPEN HOUR 11 OPEN MINUTE 13 CLOSE HOUR 12 CLOSE MINUTE 15
-        if (nowHour == openHour && nowMinutes >= openMinute) {
-            loadingCard = true
-        } else if ((nowHour == closeHour && nowMinutes <= closeMiute)) {
-            loadingCard = true
-        } else if (nowHour >= closeHour && nowMinutes < closeMiute) loadingCard = false
 
-        if (nowHour >= openHour && nowMinutes >= openMinute) {
+//OPEN HOUR 11 OPEN MINUTE 13 CLOSE HOUR 12 CLOSE MINUTE 15
+        if (this.nowHour == openHour && this.nowMinutes >= openMinute) {
+            loadingCard = true
+        } else if ((this.nowHour == closeHour && this.nowMinutes <= closeMiute)) {
+            loadingCard = true
+        } else if (this.nowHour >= closeHour && this.nowMinutes < closeMiute) loadingCard = false
+
+        if (this.nowHour >= openHour && this.nowMinutes >= openMinute) {
 
             openLoading = true
 
@@ -230,7 +230,7 @@ export class CardListComponent implements OnInit, OnDestroy {
             }
         }
         // alert(mVidharbhaDay?.timestamp.toDate().getDate() == new Date().getDate() && mVidharbhaDay?.closing_digit != null)
-        if (nowHour >= closeHour && nowMinutes >= closeMiute) {
+        if (this.nowHour >= closeHour && this.nowMinutes >= closeMiute) {
 
 
             closeLoading = !(mMarket?.timestamp.toDate().getDate() == new Date().getDate() && mMarket?.closing_digit != null);
@@ -239,21 +239,19 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
     showMarketLoading(mMarket: DataModel, openLoading: boolean, openHour: number, openMinute: number, closeHour: number, closeMinute: number, closeLoading: boolean, loadingCard: boolean): any {
-        const now = new Date();
-        const nowHour = now.getHours();
-        const nowMinutes = now.getMinutes();
+        
 
-        loadingCard = (nowHour === openHour && nowMinutes >= openMinute) || (nowHour === closeHour && nowMinutes <= closeMinute) || (nowHour >= closeHour && nowMinutes < closeMinute);
+        loadingCard = (this.nowHour === openHour && this.nowMinutes >= openMinute) || (this.nowHour === closeHour && this.nowMinutes <= closeMinute) || (this.nowHour >= closeHour && this.nowMinutes < closeMinute);
         alert(loadingCard)
-        if (nowHour >= openHour && nowMinutes >= openMinute) {
+        if (this.nowHour >= openHour && this.nowMinutes >= openMinute) {
             openLoading = true;
-            if (mMarket && mMarket.timestamp.toDate().getDate() === now.getDate()) {
+            if (mMarket && mMarket.timestamp.toDate().getDate() === this.now.getDate()) {
                 openLoading = false;
             }
         }
 
-        if (nowHour >= closeHour && nowMinutes >= closeMinute) {
-            closeLoading = !(mMarket && mMarket.timestamp.toDate().getDate() === now.getDate() && mMarket.closing_digit !== null);
+        if (this.nowHour >= closeHour && this.nowMinutes >= closeMinute) {
+            closeLoading = !(mMarket && mMarket.timestamp.toDate().getDate() === this.now.getDate() && mMarket.closing_digit !== null);
         }
         loadingCard = openLoading || closeLoading
         return {openLoading, closeLoading, loadingCard};
@@ -262,10 +260,9 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     getMadhurNightLoading(mMadhurNight: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
 
-        if (nowHour == 20 && nowMinutes >= 20) {
+
+        if (this.nowHour == 20 && this.nowMinutes >= 20) {
             this.showMadhurNightCard = true
             this.isMadhuriNightLoading = true
 
@@ -276,14 +273,14 @@ export class CardListComponent implements OnInit, OnDestroy {
             }
         }
 
-        if (nowHour >= 22 && nowMinutes >= 22) {
+        if (this.nowHour >= 22 && this.nowMinutes >= 22) {
             this.isMadhurNightCloseLoading = true
             this.showMadhurNightCard = true
             if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate() && mMadhurNight?.closing_digit != null) {
                 this.isMadhurNightCloseLoading = false
                 this.showMadhurNightCard = false
             }
-            if (nowHour >= 23) {
+            if (this.nowHour >= 23) {
                 this.showMadhurNightCard = false
                 this.isMadhuriNightLoading = false
                 this.isMadhurNightCloseLoading = false
@@ -296,10 +293,9 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     getMilanNightLoading(mMilanNight: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+       
 //*START LOADING FROM HERE
-        if (nowHour >= 21 && nowMinutes >= 0) {
+        if (this.nowHour >= 21 && this.nowMinutes >= 0) {
             //*SHOWING LOADING CARD
             this.showMilanNightCard = true
             this.isMilanNightLoading = true
@@ -308,7 +304,7 @@ export class CardListComponent implements OnInit, OnDestroy {
             this.isMilanNightLoading = false
         }
 
-        if (nowHour >= 23 && nowMinutes >= 0) {
+        if (this.nowHour >= 23 && this.nowMinutes >= 0) {
             this.isMilanNightCloseLoading = true
             this.showMilanNightCard = true
             if (mMilanNight?.timestamp.toDate().getDate() == new Date().getDate() && mMilanNight?.closing_digit != null) {
@@ -347,18 +343,17 @@ export class CardListComponent implements OnInit, OnDestroy {
 
         const slotHour = mVidharbhaNight?.timestamp.toDate().getHours()
         const slotTime = mVidharbhaNight?.timestamp.toDate().getMinutes()
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if ((nowHour == 19 && nowMinutes >= 20)) {
+        if ((this.nowHour == 19 && this.nowMinutes >= 20)) {
             this.showVidharbhaNightCard = true
 
-        } else if ((nowHour == 20 && nowMinutes <= 30)) {
+        } else if ((this.nowHour == 20 && this.nowMinutes <= 30)) {
             this.showVidharbhaNightCard = true
         } else this.showVidharbhaNightCard = false
-        if (nowHour >= 19 && nowMinutes >= 20) {
+        if (this.nowHour >= 19 && this.nowMinutes >= 20) {
 // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isVidharbhaNightLoading = true
             if (mVidharbhaNight?.timestamp.toDate().getDate() == new Date().getDate()) {
@@ -367,7 +362,7 @@ export class CardListComponent implements OnInit, OnDestroy {
                 // console.log(mVidharbhaNight?.timestamp.toDate().getDate())
             }
         }
-        if (nowHour >= 20 && nowMinutes >= 20) {
+        if (this.nowHour >= 20 && this.nowMinutes >= 20) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isVidharbhaNightClosingLoading = true
             if (mVidharbhaNight?.timestamp.toDate().getDate() == new Date().getDate() && (mVidharbhaNight?.closing_number != null)) {
@@ -382,18 +377,17 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     mayurDayLoading(mMayurDay: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+        
         // alert(`${nowHour==16 && nowMinutes  >26}  ${nowHour < 18 && nowMinutes < 31} ${(nowHour==16 && nowMinutes  >26)   && (nowHour < 18 && nowMinutes < 31)}`
 
 // alert(nowHour>=16 && nowMinutes  >26)
         // 31
-        if ((nowHour == 16 && nowMinutes > 26)) {
+        if ((this.nowHour == 16 && this.nowMinutes > 26)) {
             // alert('true')
             this.showJantaBazaarCard = true
-        } else if (nowHour == 17) {
+        } else if (this.nowHour == 17) {
             this.showJantaBazaarCard = true
-        } else if (((nowHour == 18) && nowMinutes < 31)) {
+        } else if (((this.nowHour == 18) && this.nowMinutes < 31)) {
             this.showJantaBazaarCard = true
         } else {
             // alert('false')
@@ -402,7 +396,7 @@ export class CardListComponent implements OnInit, OnDestroy {
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if (nowHour >= 16 && nowMinutes >= 27) {
+        if (this.nowHour >= 16 && this.nowMinutes >= 27) {
             // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isMayurDayLoading = true
             if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate()) {
@@ -411,7 +405,7 @@ export class CardListComponent implements OnInit, OnDestroy {
                 // console.log(mMayurDay?.timestamp.toDate().getDate())
             }
         }
-        if (nowHour >= 18 && nowMinutes >= 27) {
+        if (this.nowHour >= 18 && this.nowMinutes >= 27) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isMayurDayClosingLoading = true
             if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate() && (mMayurDay?.closing_number != null)) {
@@ -424,18 +418,17 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     srideviLoading(mSridevi: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+
         // alert(`${nowHour==16 && nowMinutes  >26}  ${nowHour < 18 && nowMinutes < 31} ${(nowHour==16 && nowMinutes  >26)   && (nowHour < 18 && nowMinutes < 31)}`
 
 // alert(nowHour>=16 && nowMinutes  >26)
         // 31
-        if ((nowHour == 11 && nowMinutes > 30)) {
+        if ((this.nowHour == 11 && this.nowMinutes > 30)) {
             // alert('true')
             // this.showJantaBazaarCard = true
-        } else if (nowHour == 12) {
+        } else if (this.nowHour == 12) {
             // this.showJantaBazaarCard = true
-        } else if (((nowHour == 12) && nowMinutes < 31)) {
+        } else if (((this.nowHour == 12) && this.nowMinutes < 31)) {
             // this.showJantaBazaarCard = true
         } else {
             // alert('false')
@@ -444,7 +437,7 @@ export class CardListComponent implements OnInit, OnDestroy {
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if (nowHour >= 11 && nowMinutes >= 30) {
+        if (this.nowHour >= 11 && this.nowMinutes >= 30) {
             // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isSrideviLoading = true
             if (mSridevi?.timestamp.toDate().getDate() == new Date().getDate()) {
@@ -453,7 +446,7 @@ export class CardListComponent implements OnInit, OnDestroy {
                 // console.log(mMayurDay?.timestamp.toDate().getDate())
             }
         }
-        if (nowHour >= 12 && nowMinutes >= 30) {
+        if (this.nowHour >= 12 && this.nowMinutes >= 30) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isSrideviClosingLoading = true
             if (mSridevi?.timestamp.toDate().getDate() == new Date().getDate() && (mSridevi?.closing_number != null)) {
@@ -466,18 +459,17 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     madhurMorningLoading(mSridevi: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+
         // alert(`${nowHour==16 && nowMinutes  >26}  ${nowHour < 18 && nowMinutes < 31} ${(nowHour==16 && nowMinutes  >26)   && (nowHour < 18 && nowMinutes < 31)}`
 
 // alert(nowHour>=16 && nowMinutes  >26)
         // 31
-        if ((nowHour == 11 && nowMinutes > 25)) {
+        if ((this.nowHour == 11 && this.nowMinutes > 25)) {
             // alert('true')
             this.showMadhurMorningCard = true
-        } else if (nowHour == 12) {
+        } else if (this.nowHour == 12) {
             this.showMadhurMorningCard
-        } else if (((nowHour == 12) && nowMinutes < 31)) {
+        } else if (((this.nowHour == 12) && this.nowMinutes < 31)) {
             this.showMadhurMorningCard
         } else {
             // alert('false')
@@ -486,7 +478,7 @@ export class CardListComponent implements OnInit, OnDestroy {
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if (nowHour >= 11 && nowMinutes >= 30) {
+        if (this.nowHour >= 11 && this.nowMinutes >= 30) {
             // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isMadhurMorningLoading = true
             if (mSridevi?.timestamp.toDate().getDate() == new Date().getDate()) {
@@ -495,7 +487,7 @@ export class CardListComponent implements OnInit, OnDestroy {
                 // console.log(mMayurDay?.timestamp.toDate().getDate())
             }
         }
-        if (nowHour >= 12 && nowMinutes >= 30) {
+        if (this.nowHour >= 12 && this.nowMinutes >= 30) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
 
             this.isMadhurMorningCloseLoading = !(mSridevi?.timestamp.toDate().getDate() == new Date().getDate() && (mSridevi?.closing_number != null));
@@ -503,29 +495,26 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
     getisMilanDayLoading(mMilanDay: DataModel) {
-        const now = new Date();
-        const nowHour = now.getHours();
-        const nowMinutes = now.getMinutes();
 
-        if (nowHour === 14 && nowMinutes > 50) {
+        if (this.nowHour === 14 && this.nowMinutes > 50) {
             this.showMilanDayCard = true;
 
-        } else if (nowHour === 16 || (nowHour >= 16 && nowMinutes <= 55)) {
+        } else if (this.nowHour === 16 || (this.nowHour >= 16 && this.nowMinutes <= 55)) {
             this.showMilanDayCard = true;
         } else {
             this.showMilanDayCard = false;
         }
 
-        if (nowHour >= 16 && nowMinutes >= 55) {
+        if (this.nowHour >= 16 && this.nowMinutes >= 55) {
             this.isMilanDayLoading = true;
-            if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === now.getDate()) {
+            if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === this.now.getDate()) {
                 this.isMilanDayLoading = false;
             }
         }
 
-        if (nowHour >= 16 && nowMinutes >= 50) {
+        if (this.nowHour >= 16 && this.nowMinutes >= 50) {
             this.isMilanDayCloseLoading = true;
-            if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === now.getDate() && mMilanDay.closing_number !== null) {
+            if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === this.now.getDate() && mMilanDay.closing_number !== null) {
                 this.isMilanDayCloseLoading = false;
                 this.showMilanDayCard = false;
             }
@@ -533,21 +522,19 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
     isMilanLoading(mMilanDay: DataModel) {
-        const now = new Date();
-        const nowHour = now.getHours();
-        const nowMinutes = now.getMinutes();
+
         //FOR OPEN for 3 and 4
-        if (nowHour >= 14 && nowMinutes >= 50 || (nowHour >= 15)) {
+        if (this.nowHour >= 14 && this.nowMinutes >= 50 || (this.nowHour >= 15)) {
             this.isMilanDayLoading = true
             this.showMilanDayCard = true
-            if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === now.getDate()) {
+            if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === this.now.getDate()) {
                 this.isMilanDayLoading = false;
                 this.showMilanDayCard = false;
             }
-            if (nowHour >= 16 && nowMinutes >= 50 || (nowHour >= 17)) {
+            if (this.nowHour >= 16 && this.nowMinutes >= 50 || (this.nowHour >= 17)) {
                 this.isMilanDayCloseLoading = true
                 this.showMilanDayCard = true
-                if (mMilanDay.timestamp.toDate().getDate() === now.getDate() && mMilanDay.closing_number !== null) {
+                if (mMilanDay.timestamp.toDate().getDate() === this.now.getDate() && mMilanDay.closing_number !== null) {
                     this.isMilanDayLoading = false
                     this.isMilanDayCloseLoading = false
                     this.showMilanDayCard = false;
@@ -559,22 +546,21 @@ export class CardListComponent implements OnInit, OnDestroy {
     }
 
     getKalyanLoading(mKalyan: DataModel) {
-        const now = new Date();
-        const nowHour = now.getHours();
-        const nowMinutes = now.getMinutes();
+
+
         //FOR OPEN for 3 and 4
-        if ((nowHour >= 15 && nowMinutes >= 35) || (nowHour >= 16)) {
+        if ((this.nowHour >= 15 && this.nowMinutes >= 35) || (this.nowHour >= 16)) {
             this.isKalyanLoading = true
             this.showKalyanLoadingCard = true
-            if (mKalyan && mKalyan.timestamp.toDate().getDate() === now.getDate()) {
+            if (mKalyan && mKalyan.timestamp.toDate().getDate() === this.now.getDate()) {
                 setTimeout(() => {
                     this.showKalyanLoadingCard = false;
                 }, 30000);            }
 
-            if (nowHour >= 16 && nowMinutes >= 50 || (nowHour >= 17)) {
+            if (this.nowHour >= 16 && this.nowMinutes >= 50 || (this.nowHour >= 17)) {
                 this.isKalyanCloseLoading = true
                 this.showKalyanLoadingCard = true
-                if (mKalyan.timestamp.toDate().getDate() === now.getDate() && mKalyan.closing_number !== null) {
+                if (mKalyan.timestamp.toDate().getDate() === this.now.getDate() && mKalyan.closing_number !== null) {
                     this.isKalyanLoading = false
                     this.isKalyanCloseLoading = false
                     this.showKalyanLoadingCard = false;
@@ -587,15 +573,13 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     getSrideviNightLoading(mSrideviNight: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
 
-        if ((nowHour == 19 && nowMinutes >= 15)) {
+        if ((this.nowHour == 19 && this.nowMinutes >= 15)) {
             // alert('true')
             this.showSrideviNightCard = true
             this.isSrideviNightLoading = true
 
-        } else if (((nowHour == 19) && nowMinutes < 0)) {
+        } else if (((this.nowHour == 19) && this.nowMinutes < 0)) {
             this.showSrideviNightCard = false
         } else {
             // alert('false')
@@ -604,7 +588,7 @@ export class CardListComponent implements OnInit, OnDestroy {
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if (nowHour >= 20 && nowMinutes >= 0) {
+        if (this.nowHour >= 20 && this.nowMinutes >= 0) {
             // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isSrideviNightLoading = true
             if (mSrideviNight?.timestamp.toDate().getDate() == new Date().getDate()) {
@@ -613,7 +597,7 @@ export class CardListComponent implements OnInit, OnDestroy {
                 // console.log(mMayurDay?.timestamp.toDate().getDate())
             }
         }
-        if (nowHour >= 20 && nowMinutes >= 0) {
+        if (this.nowHour >= 20 && this.nowMinutes >= 0) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isSrideviNightCloseLoading = true
             if (mSrideviNight?.timestamp.toDate().getDate() == new Date().getDate() && (mSrideviNight?.closing_number != null)) {
@@ -627,18 +611,17 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     getMadhurNightLoadingOLD(mMadhurNight: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
+
         // alert(`${nowHour==16 && nowMinutes  >26}  ${nowHour < 18 && nowMinutes < 31} ${(nowHour==16 && nowMinutes  >26)   && (nowHour < 18 && nowMinutes < 31)}`
 
 // alert(nowHour>=16 && nowMinutes  >26)
         // 31
-        if ((nowHour == 20 && nowMinutes > 30)) {
+        if ((this.nowHour == 20 && this.nowMinutes > 30)) {
             // alert('true')
             this.showMadhurNightCard = true
-        } else if (nowHour == 20) {
+        } else if (this.nowHour == 20) {
             this.showMadhurNightCard = true
-        } else if (((nowHour == 20) && nowMinutes < 30)) {
+        } else if (((this.nowHour == 20) && this.nowMinutes < 30)) {
             this.showMadhurNightCard = true
         } else {
             // alert('false')
@@ -647,14 +630,14 @@ export class CardListComponent implements OnInit, OnDestroy {
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if (nowHour >= 22 && nowMinutes >= 30) {
+        if (this.nowHour >= 22 && this.nowMinutes >= 30) {
             // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isMadhuriNightLoading = true
             if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate()) {
                 this.isMadhuriNightLoading = false
             }
         }
-        if (nowHour >= 22 && nowMinutes >= 30) {
+        if (this.nowHour >= 22 && this.nowMinutes >= 30) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isMadhurNightCloseLoading = true
             if (mMadhurNight?.timestamp.toDate().getDate() == new Date().getDate() && (mMadhurNight?.closing_number != null)) {
@@ -666,16 +649,15 @@ export class CardListComponent implements OnInit, OnDestroy {
 
     getMainBazaarLoading(mMainBazaar: DataModel) {
 
-        const nowHour = this.now.getHours()
-        const nowMinutes = this.now.getMinutes()
-        if ((nowHour == 21 && nowMinutes > 35)) {
+
+        if ((this.nowHour == 21 && this.nowMinutes > 35)) {
             this.showMainBazaarCard = true
             this.isMainBazaarLoading = true
         }
-        if (nowHour >= 21 && this.mMainBazaarMumbai?.timestamp.toDate().getDate() == new Date().getDate()) {
+        if (this.nowHour >= 21 && this.mMainBazaarMumbai?.timestamp.toDate().getDate() == new Date().getDate()) {
             this.isMainBazaarLoading = false
         }
-        if (nowHour >= 23 && nowMinutes >= 40) {
+        if (this.nowHour >= 23 && this.nowMinutes >= 40) {
 
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isMainBazaarCloseLoading = true
