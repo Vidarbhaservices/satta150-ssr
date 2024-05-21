@@ -420,7 +420,7 @@
     </div>
 
 
-    <!--    SRIDEVI-->
+    <!*--    SRIDEVI-->
     <div class="">
         <h4>SRIDEVI</h4>
         <ng-container *ngIf="isSrideviLoading || isSrideviClosingLoading">
@@ -448,7 +448,7 @@
 
 
     <div class="">
-        <h4>TIME BAZAR</h4>
+        <h4>TIME BAZAAR</h4>
         <ng-container *ngIf="isTimeBazaaeCloseLoading || isTimeBazaaeLoading">
             <span class="loading m-4">Loading...</span>
         </ng-container>
@@ -472,7 +472,31 @@
         </div>
     </div>
 
+    <!*--------------------------------------------- RAJDHANI  DAY--------------------------------------------->
+    <div class="">
+        <h4>RAJDHANI DAY</h4>
+<!--        <ng-container *ngIf="isMilanDayLoading || isMilanDayCloseLoading">-->
+<!--            <span class="loading m-4">Loading...</span>-->
+<!--        </ng-container>-->
 
+        <ng-container>
+            <h5 class="m-2">
+
+                <span>    {{ getOpeningCombination(mRajdhaniDay) }}
+                    - {{ getOpeningNumber(mRajdhaniDay) }}{{ getClosingNumber(mRajdhaniDay) }}
+                    - {{ getClosingCombination(mRajdhaniDay) }}</span>
+            </h5>
+        </ng-container>
+
+        <h6>03:00 PM &nbsp;&nbsp;
+            05:00 PM</h6>
+        <div class="result_timing">
+            <a [routerLink]="['jodi','rajdhani-day']" class="btn_chart_blue">Jodi</a>
+        </div>
+        <div class="result_timing_right">
+            <a [routerLink]="['panel','rajdhani-day']" class="btn_chart_blue">Panel</a>
+        </div>
+    </div>
     <!*--------------------------------------------- MILAN DAY--------------------------------------------->
     <div class="">
         <h4>MILAN DAY</h4>
@@ -563,7 +587,7 @@
     </div>
 
 
-    <!--    MAYUR DAY-->
+    <!--    JANTA BAZAAR-->
     <div class="yellowbg">
         <h4>JANTA BAZAAR </h4>
         <ng-container *ngIf="isMayurDayLoading || isMayurDayClosingLoading">
@@ -625,7 +649,7 @@
             <a [routerLink]="['panel','sridevi-night']" class="btn_chart_blue">Panel</a>
         </div>
     </div>
-
+    <!*--MADHUR NIGHT-->
     <div class="">
         <h4>MADHUR NIGHT</h4>
         <!--        <ng-container *ngIf="isMadhuriNightLoading || isMadhurNightCloseLoading">-->
@@ -680,6 +704,33 @@
             <a [routerLink]="['panel','vidharbha-night']" class="btn_chart_blue">Panel</a>
         </div>
     </div>
+
+    <!*--------------------------------------------- RAJDHANI  NIGHT--------------------------------------------->
+    <div class="">
+        <h4>RAJDHANI NIGHT</h4>
+        <!--        <ng-container *ngIf="isMilanDayLoading || isMilanDayCloseLoading">-->
+        <!--            <span class="loading m-4">Loading...</span>-->
+        <!--        </ng-container>-->
+
+        <ng-container>
+            <h5 class="m-2">
+
+                <span>    {{ getOpeningCombination(mRajdhaniNight) }}
+                    - {{ getOpeningNumber(mRajdhaniNight) }}{{ getClosingNumber(mRajdhaniNight) }}
+                    - {{ getClosingCombination(mRajdhaniNight) }}</span>
+            </h5>
+        </ng-container>
+
+        <h6>09:00 PM &nbsp;&nbsp;
+            11:45 PM</h6>
+        <div class="result_timing">
+            <a [routerLink]="['jodi','rajdhani-night']" class="btn_chart_blue">Jodi</a>
+        </div>
+        <div class="result_timing_right">
+            <a [routerLink]="['panel','rajdhani-night']" class="btn_chart_blue">Panel</a>
+        </div>
+    </div>
+
     <div class="">
         <h4>MILAN NIGHT</h4>
         <ng-container *ngIf="isMilanNightLoading || isMilanNightCloseLoading">
@@ -703,7 +754,6 @@
             <a [routerLink]="['panel','milan-night']" class="btn_chart_blue">Panel</a>
         </div>
     </div>
-
     <div class="">
         <h4>MAIN BAZAR</h4>
         <ng-container *ngIf="isMainBazaarLoading || isMilanNightCloseLoading">

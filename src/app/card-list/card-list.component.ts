@@ -43,6 +43,8 @@ export class CardListComponent implements OnInit, OnDestroy {
     mMadhurMorning?: DataModel
     mTimeBazaar?: DataModel
     mMilanDay?: DataModel
+    mRajdhaniDay?: DataModel
+    mRajdhaniNight?: DataModel
     mKalyan?: DataModel
     mMainBazaarMumbai?: DataModel
 
@@ -115,6 +117,8 @@ export class CardListComponent implements OnInit, OnDestroy {
         this.getMadhurNight()
         this.getMilanNight()
         this.getMainBazaar()
+        this.getRajdhaniDay()
+        this.getRajdhaniNight()
     }
 
 
@@ -841,6 +845,36 @@ export class CardListComponent implements OnInit, OnDestroy {
             )
     }
 
+    private getRajdhaniDay() {
+        this.marketService.fetchFromFirestore('rajdhani-day')
+            .pipe(
+                takeUntil(this._destroyed)
+            )
+            .subscribe(
+                res => {
+                    // this.mMayurDay = res[0]
+                    this.mRajdhaniDay = res[0]
+                    // this.mayurDayLoading(this.mMayurDay)
+
+                    // if (!this.isSaturday && !this.isSunday) this.getMainBazaarLoading(this.mMainBazaarMumbai)
+                }
+            )
+    }
+    private getRajdhaniNight() {
+        this.marketService.fetchFromFirestore('rajdhani-night')
+            .pipe(
+                takeUntil(this._destroyed)
+            )
+            .subscribe(
+                res => {
+                    // this.mMayurDay = res[0]
+                    this.mRajdhaniNight = res[0]
+                    // this.mayurDayLoading(this.mMayurDay)
+
+                    // if (!this.isSaturday && !this.isSunday) this.getMainBazaarLoading(this.mMainBazaarMumbai)
+                }
+            )
+    }
 
     isLoading() {
         return this.isVidharbhaDayLoading || this.isVidharbhaDayCloseLoading ||
