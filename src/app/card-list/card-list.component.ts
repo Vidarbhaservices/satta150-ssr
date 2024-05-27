@@ -382,12 +382,12 @@ export class CardListComponent implements OnInit, OnDestroy {
 
 // alert(nowHour>=16 && nowMinutes  >26)
         // 31
-        if ((this.nowHour == 13 && this.nowMinutes > 20)) {
+        if ((this.nowHour == 16 && this.nowMinutes > 26)) {
             // alert('true')
             this.showJantaBazaarCard = true
-        } else if (this.nowHour == 14) {
+        } else if (this.nowHour == 17) {
             this.showJantaBazaarCard = true
-        } else if (((this.nowHour == 15) && this.nowMinutes < 30)) {
+        } else if (((this.nowHour == 18) && this.nowMinutes < 31)) {
             this.showJantaBazaarCard = true
         } else {
             // alert('false')
@@ -396,7 +396,7 @@ export class CardListComponent implements OnInit, OnDestroy {
         // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
         // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-        if (this.nowHour >= 15 && this.nowMinutes >= 25) {
+        if (this.nowHour >= 16 && this.nowMinutes >= 27) {
             // alert('slot logic nowHour>=23 && nowMinutes>=47')
             this.isMayurDayLoading = true
             if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate()) {
@@ -405,7 +405,7 @@ export class CardListComponent implements OnInit, OnDestroy {
                 // console.log(mMayurDay?.timestamp.toDate().getDate())
             }
         }
-        if (this.nowHour >= 15 && this.nowMinutes >= 27) {
+        if (this.nowHour >= 18 && this.nowMinutes >= 27) {
 // alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
             this.isMayurDayClosingLoading = true
             if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate() && (mMayurDay?.closing_number != null)) {
