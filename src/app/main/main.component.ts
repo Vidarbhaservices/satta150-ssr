@@ -38,7 +38,7 @@ export interface HourlyModel {
     styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-    date = new Date()
+      date = new Date()
     formattedDate: string
     hourlyData: HourlyModel | null | undefined
     deferredPrompt: any;
