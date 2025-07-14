@@ -62,10 +62,10 @@ export class CardListComponent implements OnInit, OnDestroy {
   showMainBazaarCard = false
   isMilanDayCloseLoading = false
 
-  isVidharbhaDayLoading = false
-  isVidharbhaDayCloseLoading = false
-  isVidharbhaNightLoading = false
-  isVidharbhaNightClosingLoading = false
+  isVidharbhaDayLoading = false;
+  isVidharbhaDayCloseLoading = false;
+  isVidharbhaNightLoading = false;
+  isVidharbhaNightClosingLoading = false;
   isMayurDayLoading = false;
   isSrideviLoading = false;
   isMadhurMorningLoading = false;
@@ -372,43 +372,22 @@ export class CardListComponent implements OnInit, OnDestroy {
   }
 
   mayurDayLoading(mMayurDay: DataModel) {
-
-
-    // alert(`${nowHour==16 && nowMinutes  >26}  ${nowHour < 18 && nowMinutes < 31} ${(nowHour==16 && nowMinutes  >26)   && (nowHour < 18 && nowMinutes < 31)}`
-
-// alert(nowHour>=16 && nowMinutes  >26)
-    // 31
-    if ((this.nowHour == 16 && this.nowMinutes > 25)) {
-      // alert('true')
-      this.showJantaBazaarCard = true
-    } else if (this.nowHour == 17) {
-      this.showJantaBazaarCard = true
-    } else if (((this.nowHour == 18) && this.nowMinutes < 25)) {
-      this.showJantaBazaarCard = true
+    // Janta Bazar (Mayur Day) timing: 5:30 PM (17:30) to 6:30 PM (18:30)
+    if ((this.nowHour === 17 && this.nowMinutes >= 30) ||
+        (this.nowHour === 18 && this.nowMinutes <= 30) ||
+        (this.nowHour > 17 && this.nowHour < 18)) {
+      this.showJantaBazaarCard = true;
     } else {
-      // alert('false')
-      this.showJantaBazaarCard = false
+      this.showJantaBazaarCard = false;
     }
-    // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
-    // alert(`${slotHour}: ${slotTime}`)
-// alert(this.mVidharbhaNight?.timestamp.toDate())
-    if (this.nowHour >= 16 && this.nowMinutes >= 25) {
-      // alert('slot logic nowHour>=23 && nowMinutes>=47')
-      this.isMayurDayLoading = true
-      if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate()) {
-        this.isMayurDayLoading = false
-        // console.log(new Date().getDate())
-        // console.log(mMayurDay?.timestamp.toDate().getDate())
+    if (this.nowHour > 17 || (this.nowHour === 17 && this.nowMinutes >= 30)) {
+      this.isMayurDayLoading = true;
+      if (mMayurDay?.timestamp.toDate().getDate() === new Date().getDate()) {
+        this.isMayurDayLoading = false;
       }
     }
-    if (this.nowHour >= 18 && this.nowMinutes >= 25) {
-// alert(`slot logic ${nowHour}>=23 && ${nowMinutes}>=47`)
-      this.isMayurDayClosingLoading = true
-      if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate() && (mMayurDay?.closing_number != null)) {
-        this.isMayurDayClosingLoading = false
-        // console.log(new Date().getDate())
-        // console.log(mMayurDay?.timestamp.toDate().getDate())
-      }
+    if (this.nowHour > 18 || (this.nowHour === 18 && this.nowMinutes >= 30)) {
+      this.isMayurDayClosingLoading = !(mMayurDay?.timestamp.toDate().getDate() === new Date().getDate() && (mMayurDay?.closing_number != null));
     }
   }
 
@@ -518,25 +497,37 @@ export class CardListComponent implements OnInit, OnDestroy {
   }
 
   isMilanLoading(mMilanDay: DataModel) {
+    // Milan Day open: 2:00 PM, close: 4:00 PM
+    // Loading should start 10 minutes before each (1:50 PM and 3:50 PM)
+    const openHour = 14, openMinute = 0;
+    const closeHour = 16, closeMinute = 0;
+    const nowMinutesTotal = this.nowHour * 60 + this.nowMinutes;
+    const openStart = (openHour - 1) * 60 + 50; // 1:50 PM
+    const openEnd = openHour * 60; // 2:00 PM
+    const closeStart = (closeHour - 1) * 60 + 50; // 3:50 PM
+    const closeEnd = closeHour * 60; // 4:00 PM
 
-    //FOR OPEN for 3 and 4
-    if (this.nowHour >= 14 && this.nowMinutes >= 50 || (this.nowHour >= 15)) {
-      this.isMilanDayLoading = true
-      this.showMilanDayCard = true
+    // Open loading state
+    if (nowMinutesTotal >= openStart && nowMinutesTotal < openEnd) {
+      this.isMilanDayLoading = true;
+      this.showMilanDayCard = true;
       if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === this.now.getDate()) {
         this.isMilanDayLoading = false;
         this.showMilanDayCard = false;
       }
-      if (this.nowHour >= 16 && this.nowMinutes >= 50 || (this.nowHour >= 17)) {
-        this.isMilanDayCloseLoading = true
-        this.showMilanDayCard = true
-        if (mMilanDay.timestamp.toDate().getDate() === this.now.getDate() && mMilanDay.closing_number !== null) {
-          this.isMilanDayLoading = false
-          this.isMilanDayCloseLoading = false
-          this.showMilanDayCard = false;
-        }
+    }
+    // Close loading state
+    else if (nowMinutesTotal >= closeStart && nowMinutesTotal < closeEnd) {
+      this.isMilanDayCloseLoading = true;
+      this.showMilanDayCard = true;
+      if (mMilanDay && mMilanDay.timestamp.toDate().getDate() === this.now.getDate() && mMilanDay.closing_number !== null) {
+        this.isMilanDayCloseLoading = false;
+        this.showMilanDayCard = false;
       }
-// FOR CLOSE
+    } else {
+      this.isMilanDayLoading = false;
+      this.isMilanDayCloseLoading = false;
+      this.showMilanDayCard = false;
     }
 
   }
@@ -718,12 +709,32 @@ export class CardListComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         res => {
-          // this.mMayurDay = res[0]
           this.mTimeBazaar = res[0]
-          // this.mayurDayLoading(this.mMayurDay)
-          // if (!this.isSunday)   this.gettim(this.mTimeBazaar)
+          // Add loading logic for Time Bazaar (1:00 PM to 3:15 PM)
+          this.timeBazaarLoading(this.mTimeBazaar)
         }
       )
+  }
+
+  private timeBazaarLoading(mTimeBazaar: DataModel) {
+    // Time Bazaar open: 1:00 PM (13:00), close: 3:15 PM (15:15)
+    const openHour = 13, openMinute = 0;
+    const closeHour = 15, closeMinute = 15;
+    // Show card if in loading window or after open and before close
+    this.showTimeBazaarCard = this.isWithin10MinBefore(openHour, openMinute) ||
+      (this.isAfterOrEqual(openHour, openMinute) && !this.isAfter(closeHour, closeMinute)) ||
+      this.isWithin10MinBefore(closeHour, closeMinute);
+    // Loading for open (10 min before open)
+    if (this.isWithin10MinBefore(openHour, openMinute)) {
+      this.isTimeBazaaeLoading = true;
+      if (mTimeBazaar?.timestamp.toDate().getDate() === this.now.getDate()) {
+        this.isTimeBazaaeLoading = false;
+      }
+    }
+    // Loading for close (10 min before close)
+    if (this.isWithin10MinBefore(closeHour, closeMinute)) {
+      this.isTimeBazaaeCloseLoading = !(mTimeBazaar?.timestamp.toDate().getDate() === this.now.getDate() && mTimeBazaar?.closing_number != null);
+    }
   }
 
   private getMilanDay() {
@@ -867,6 +878,33 @@ export class CardListComponent implements OnInit, OnDestroy {
 
   //
     }
+
+  /**
+   * Returns true if now is within [targetHour:targetMinute - 10min, targetHour:targetMinute)
+   */
+  private isWithin10MinBefore(targetHour: number, targetMinute: number): boolean {
+    const nowTotal = this.nowHour * 60 + this.nowMinutes;
+    const targetTotal = targetHour * 60 + targetMinute;
+    return nowTotal >= targetTotal - 10 && nowTotal < targetTotal;
+  }
+
+  /**
+   * Returns true if now is after targetHour:targetMinute
+   */
+  private isAfter(targetHour: number, targetMinute: number): boolean {
+    const nowTotal = this.nowHour * 60 + this.nowMinutes;
+    const targetTotal = targetHour * 60 + targetMinute;
+    return nowTotal >= targetTotal;
+  }
+
+  /**
+   * Returns true if now is after or equal to targetHour:targetMinute
+   */
+  private isAfterOrEqual(targetHour: number, targetMinute: number): boolean {
+    const nowTotal = this.nowHour * 60 + this.nowMinutes;
+    const targetTotal = targetHour * 60 + targetMinute;
+    return nowTotal >= targetTotal;
+  }
 }
 
 //MORNING

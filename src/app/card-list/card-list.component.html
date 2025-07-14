@@ -1,4 +1,3 @@
-
 <div *ngIf="isLoading()">
     <div class="banner "><span class="blink">
         📡  *** LIVE UPDATE *** <img
@@ -70,8 +69,8 @@
                    -{{ getOpeningNumber(mMayurDay) }}{{ getClosingNumber(mMayurDay) }}
                    -{{ getClosingCombination(mMayurDay) }}</span>
                 </h5>
-                <h6 class="m-2">04:00 PM &nbsp;&nbsp;
-                    06:00 PM</h6>
+                <h6 class="m-2">05:30 PM &nbsp;&nbsp;
+                    06:30 PM</h6>
                 <div class="result_timing">
                     <a [routerLink]="['jodi','mayur-day']" class="btn_chart_blue">Jodi</a>
                 </div>
@@ -203,8 +202,8 @@
             <!--                <span *ngIf="isVidharbhaNightClosingLoading ">  {{ getOpeningCombination(mVidharbhaDay) }}-{{getOpeningNumber(mVidharbhaDay)}} -</span>-->
             <!--            </h5>-->
             <!--        </ng-container>-->
-            <h6>01:05 PM &nbsp;&nbsp;
-                02:05 PM</h6>
+            <h6>01:00 PM &nbsp;&nbsp;
+                03:15 PM</h6>
             <div class="result_timing">
                 <a [routerLink]="['jodi','time-bazaar']" class="btn_chart_blue">Jodi</a>
             </div>
@@ -221,23 +220,13 @@
             <ng-container *ngIf="isMilanDayLoading  || isMilanDayCloseLoading ">
                 <span class="loading m-4">Loading...</span>
             </ng-container>
-            <!--        <ng-container *ngIf="isVidharbhaDayCloseLoading" >-->
-            <!--            <span class="loading m-4">Loading2...</span>-->
-            <!--        </ng-container>-->
-            <!--        <ng-container *ngIf="!isVidharbhaNightLoading && !isVidharbhaNightClosingLoading" >-->
             <h5>
             <span *ngIf="!isMilanDayCloseLoading ">      {{ getOpeningCombination(mMilanDay) }}
                 -{{ getOpeningNumber(mMilanDay) }}{{ getClosingNumber(mMilanDay) }}
                 -{{ getClosingCombination(mMilanDay) }}</span>
             </h5>
-            <!--        </ng-container>-->
-            <!--        <ng-container  *ngIf=" isVidharbhaNightLoading">-->
-            <!--            <h5 class="mt-2">-->
-            <!--                <span *ngIf="isVidharbhaNightClosingLoading ">  {{ getOpeningCombination(mVidharbhaDay) }}-{{getOpeningNumber(mVidharbhaDay)}} -</span>-->
-            <!--            </h5>-->
-            <!--        </ng-container>-->
-            <h6 class="m-2">3:00 PM &nbsp;&nbsp;
-                5:00 PM</h6>
+            <h6 class="m-2">02:00 PM &nbsp;&nbsp;
+                04:00 PM</h6>
             <div class="result_timing">
                 <a [routerLink]="['jodi','milan-day']" class="btn_chart_blue">Jodi</a>
             </div>
@@ -247,7 +236,8 @@
         </div>
     </ng-container>
 
-    <!*-- KALYAN-->
+
+    <!*--KALYAN-->
     <ng-container *ngIf=" showKalyanLoadingCard|| isKalyanLoading  || isKalyanCloseLoading ">
         <div class="yellowbg">
             <h4>KALYAN</h4>
@@ -464,8 +454,8 @@
             </h5>
         </ng-container>
 
-        <h6>01:05 PM &nbsp;&nbsp;
-            02:05 PM</h6>
+        <h6>01:00 PM &nbsp;&nbsp;
+            03:15 PM</h6>
         <div class="result_timing">
             <a [routerLink]="['jodi','time-bazaar']" class="btn_chart_blue">Jodi</a>
         </div>
@@ -515,8 +505,8 @@
             </h5>
         </ng-container>
 
-        <h6>03:05 PM &nbsp;&nbsp;
-            05:05 PM</h6>
+        <h6>02:00 PM &nbsp;&nbsp;
+            04:00 PM</h6>
         <div class="result_timing">
             <a [routerLink]="['jodi','milan-day']" class="btn_chart_blue">Jodi</a>
         </div>
@@ -548,8 +538,8 @@
             </h5>
         </ng-container>
 
-        <h6>03:45 PM &nbsp;&nbsp;
-            05:45 PM</h6>
+        <h6 class="m-2">3:45 PM &nbsp;&nbsp;
+            5:45 PM</h6>
         <div class="result_timing">
             <a [routerLink]="['jodi','kalyan']" class="btn_chart_blue">Jodi</a>
         </div>
@@ -615,8 +605,8 @@
 
         <!--        <h5 *ngIf="isMayurDayLoading" > {{ getOpeningCombination(mMayurDay) }}-{{getOpeningNumber(mMayurDay)}}{{getClosingNumber(mMayurDay) }}-{{getClosingCombination(mMayurDay)}}</h5>-->
 
-        <h6 class="m-2">04:00 PM &nbsp;&nbsp;
-            06:00 PM</h6>
+        <h6 class="m-2">05:30 PM &nbsp;&nbsp;
+            06:30 PM</h6>
         <div class="result_timing">
             <a [routerLink]="['jodi','mayur-day']" class="btn_chart_blue">Jodi</a>
         </div>
