@@ -392,7 +392,7 @@ export class CardListComponent implements OnInit, OnDestroy {
     // alert(`${this.now.getHours()}: ${this.now.getMinutes()}`)
     // alert(`${slotHour}: ${slotTime}`)
 // alert(this.mVidharbhaNight?.timestamp.toDate())
-    if (this.nowHour >= 16 && this.nowMinutes >= 25) {
+    if (this.nowHour >= 17 && this.nowMinutes >= 25) {
       // alert('slot logic nowHour>=23 && nowMinutes>=47')
       this.isMayurDayLoading = true
       if (mMayurDay?.timestamp.toDate().getDate() == new Date().getDate()) {
