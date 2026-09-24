@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "public": true,
-  "name": "satta150",
   "rewrites": [
     {
       "source": "/(.*)",
